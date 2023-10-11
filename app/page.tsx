@@ -16,7 +16,7 @@ export default function Home() {
       <h1 className="text-2xl lg:text-3xl text-center font-mono font-bold mt-10 lg:mt-20">Hi, my name is Thomas</h1>
 
       <p className="text-xl lg:text-2xl text-center mt-2 lg:mt-4 w-64 lg:w-1/2 lg:max-w-2xl ">
-        I'm a frontend developer with over 6 years of experience, and over 4 working with Growth Marketing.
+        I&apos;m a frontend developer with over 6 years of experience, and over 4 working with Growth Marketing.
       </p>
 
       <Tooltip className="w-60 lg:w-96">
