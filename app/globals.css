@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply text-black;
+    @apply bg-white;
+  }
+
+  ul {
+    list-style-position: inside;
+  }
+}
+
+/* For future reference in case
+   I'd like to adapt the portfolio with themes
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -25,3 +39,4 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+*/

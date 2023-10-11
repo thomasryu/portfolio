@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { url } from '@/data'
 
 // Dynamically generated robots.txt
 export default function robots(): MetadataRoute.Robots {
@@ -8,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://acme.com/sitemap.xml',
+    sitemap: `${url.origin}/sitemap.xml`,
   }
 }
