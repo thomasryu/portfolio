@@ -27,6 +27,7 @@
       "@/components/*": ["components/*"],
       "@/data": ["data"],
       "@/data/*": ["data/*"],
+      "@/icons/*": ["public/images/icons/*"],
       "@/images/*": ["public/images/*"]
     }
   },
