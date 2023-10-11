@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    // Default configurations
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -18,8 +19,12 @@
         "name": "next"
       }
     ],
+
+    // Custom module aliases
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      // "@/*": ["./*"],
+      "@/components/*": ["components/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
