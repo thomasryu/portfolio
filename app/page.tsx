@@ -17,7 +17,7 @@ export default function Home() {
         priority
       />
 
-      <h1 className="text-2xl lg:text-3xl text-center font-mono font-bold mt-10 lg:mt-20">Hi, my name is Thomas</h1>
+      <h1 className="text-2xl lg:text-3xl text-center font-bold mt-10 lg:mt-20">Hi, my name is Thomas</h1>
 
       <p className="text-xl lg:text-2xl text-center mt-4 lg:mt-6 w-64 lg:w-1/2 lg:max-w-2xl ">
         I&apos;m a frontend developer with over 6 years of experience, and over 4 working with Growth Marketing.
@@ -30,7 +30,7 @@ export default function Home() {
           rel="noopener noreferrer"
           target="_blank"
         >
-          <LinkedIn className="h-6 w-6 fill-black" /> <span className="text-md lg:text-lg ml-2 lg:ml-3">LinkedIn</span>
+          <LinkedIn className="h-6 w-6 fill-black" /> <span className="text-md lg:text-lg ml-2">LinkedIn</span>
         </a>
         <a
           className="flex flex-row items-center ml-5 lg:ml-8 first:ml-0"
@@ -38,7 +38,7 @@ export default function Home() {
           rel="noopener noreferrer"
           target="_blank"
         >
-          <GitHub className="h-6 w-6 fill-black" /> <span className="text-md lg:text-lg ml-2 lg:ml-3">GitHub</span>
+          <GitHub className="h-6 w-6 fill-black" /> <span className="text-md lg:text-lg ml-2">GitHub</span>
         </a>
       </div>
 
