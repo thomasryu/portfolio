@@ -2,7 +2,7 @@ import { Card } from './Card'
 
 type Props = {
   children: React.ReactNode
-  className: string
+  className?: string
 }
 
 export const Tooltip = (props: Props) => (
