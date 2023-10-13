@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import { Nunito, Nunito_Sans } from 'next/font/google'
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Navbar />
         {children}
+        <Analytics />
       </body>
     </html>
   )
