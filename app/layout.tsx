@@ -1,7 +1,9 @@
-import { Navbar } from '@/components/Navbar'
-import './globals.css'
 import type { Metadata } from 'next'
 import { Nunito, Nunito_Sans } from 'next/font/google'
+
+import './globals.css'
+
+import { Navbar } from '@/components/Navbar'
 
 // Adding font variables to be used in tailwind.config.ts
 const nunito = Nunito({ subsets: ['latin'], variable: '--font-nunito' })

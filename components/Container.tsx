@@ -1,7 +1,7 @@
 type Props = {
-  children: React.ReactNode
-  className?: string
-}
+  children: React.ReactNode;
+  className?: string;
+};
 
 export const Container = (props: Props) => (
   <div
@@ -13,4 +13,4 @@ export const Container = (props: Props) => (
   >
     {props.children}
   </div>
-)
+);

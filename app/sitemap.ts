@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+
 import { url } from '@/data'
 
 // Dynamically generated sitemap.xml

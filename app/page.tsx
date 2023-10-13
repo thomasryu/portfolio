@@ -1,12 +1,12 @@
-import { Tooltip } from '@/components/Tooltip'
+import GitHub from '@/icons/github.svg'
+import LinkedIn from '@/icons/linkedin.svg'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { url } from '@/data'
 
-import LinkedIn from '@/icons/linkedin.svg'
-import GitHub from '@/icons/github.svg'
 import { Container } from '@/components/Container'
-import Link from 'next/link'
+import { Tooltip } from '@/components/Tooltip'
 
 const socials = [
   {

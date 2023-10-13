@@ -7,11 +7,14 @@
   "semi": false,
 
   "importOrder": [
+    "<THIRD_PARTY_MODULES>",
     "^[./]",
     "^@/(contexts|data|providers|styles|types|utils)(/.*)?$",
     "^@/components/(.*)$",
     "^@/(documents|images|videos)/(.*)$"
   ],
   "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true
+  "importOrderSortSpecifiers": true,
+
+  "plugins": ["@trivago/prettier-plugin-sort-imports"]
 }
