@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { Container } from '@/components/Container'
 
+import House from '@/icons/house.svg'
+
 type Props = {}
 
 export const links = [
@@ -21,10 +23,15 @@ export const links = [
 export const Navbar = (props: Props) => (
   <nav className='text-black'>
     <Container className='h-16 flex items-center'>
-      <div className='space-x-2 lg:space-x-4 ml-auto'>
+      <Link className='flex items-center p-1' href='/'>
+        <House className='w-7 h-7' />
+        <span className='hidden md:block font-serif font-bold ml-3'>Home</span>
+      </Link>
+
+      <div className='space-x-2 lg:space-x-4 px-2 ml-auto'>
         {links.map((link) => (
           <Link
-            className='font-serif font-bold px-2 py-1'
+            className='font-serif hover:bg-yellow transition-colors font-bold px-2 py-1 rounded'
             href={link.href}
             key={link.label}
           >

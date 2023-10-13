@@ -4,6 +4,6 @@ export const url = {
 
   social: {
     github: 'https://github.com/thomasryu',
-    linkedin: 'https://www.linkedin.com/in/thomasryu/',
+    linkedin: 'https://www.linkedin.com/in/thomasryu',
   },
 }
