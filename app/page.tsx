@@ -97,8 +97,10 @@ export default function Home() {
         </div>
 
         {/* Tooltip */}
-        <Tooltip className="w-52">
-          <span className="text-sm lg:text-md font-bold">This website was built with the following stack:</span>
+        <Tooltip className="w-64">
+          <span className="block text-sm lg:text-md font-bold pr-6">
+            This website was built with the following stack:
+          </span>
           <ul className="list-disc mt-3 space-y-2">
             <li className="text-sm lg:text-md">React</li>
             <li className="text-sm lg:text-md">TypeScript</li>
