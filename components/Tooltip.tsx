@@ -22,7 +22,11 @@ export const Tooltip = (props: Props) => {
     <Card
       className={`fixed bottom-2 right-2 lg:bottom-6 lg:right-6 border-4 border-white rounded-xl ${closeClassName} ${props.className}`}
     >
-      <button className='absolute top-1 right-1' onClick={() => setOpen(false)}>
+      <button
+        className='absolute top-1 right-1'
+        onClick={() => setOpen(false)}
+        aria-label='Close'
+      >
         <Close className='w-8 h-8 p-1' />
       </button>
 

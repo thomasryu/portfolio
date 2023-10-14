@@ -23,7 +23,7 @@ export const links = [
 export const Navbar = (props: Props) => (
   <nav className='text-black'>
     <Container className='h-16 flex items-center'>
-      <Link className='flex items-center p-1' href='/'>
+      <Link className='flex items-center p-1' href='/' aria-label='Home'>
         <House className='w-7 h-7' />
         <span className='hidden md:block font-serif font-bold ml-3'>Home</span>
       </Link>
