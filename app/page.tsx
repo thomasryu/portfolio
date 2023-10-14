@@ -24,7 +24,7 @@ const socials = [
 const skills = [
   {
     label: 'Development',
-    tags: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'WordPress'],
+    tags: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Gatsby', 'WordPress'],
   },
   {
     label: 'Tools',
@@ -34,6 +34,8 @@ const skills = [
       'Jira',
       'Google Tag Manager',
       'Google Analytics',
+      'Vercel',
+      'Netlify',
       'HubSpot',
       'Hotjar',
       'Microsoft Clarity',

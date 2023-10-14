@@ -11,8 +11,8 @@ const nunito = Nunito({ subsets: ['latin'], variable: '--font-nunito' })
 const nunito_sans = Nunito_Sans({ subsets: ['latin'], variable: '--font-nunito-sans' })
 
 export const metadata: Metadata = {
-  title: 'Thomas Sameshima | Frontend Developer',
-  description: '',
+  title: 'Thomas | Frontend Developer',
+  description: "I'm a frontend developer with over 6 years of experience, specializing in growth marketing.",
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
