@@ -9,9 +9,9 @@
   "importOrder": [
     "<THIRD_PARTY_MODULES>",
     "^[./]",
-    "^@/(contexts|data|providers|styles|types|utils)(/.*)?$",
+    "^@/(data|types|utils)(/.*)?$",
     "^@/components/(.*)$",
-    "^@/(documents|images|videos)/(.*)$"
+    "^@/(documents|icons|images|videos)/(.*)$"
   ],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,

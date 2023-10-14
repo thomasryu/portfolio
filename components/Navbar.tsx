@@ -24,14 +24,16 @@ export const Navbar = (props: Props) => (
   <nav className='text-black'>
     <Container className='h-16 flex items-center'>
       <Link className='flex items-center p-1' href='/' aria-label='Home'>
-        <House className='w-7 h-7' />
-        <span className='hidden md:block font-serif font-bold ml-3'>Home</span>
+        <House className='w-7 h-7 lg:mb-1' />
+        <span className='text-md lg:text-lg hidden md:block font-serif font-bold ml-3'>
+          Home
+        </span>
       </Link>
 
-      <div className='space-x-2 lg:space-x-4 px-2 ml-auto'>
+      <div className='space-x-2 ml-auto'>
         {links.map((link) => (
           <Link
-            className='font-serif hover:bg-yellow transition-colors font-bold px-2 py-1 rounded'
+            className='text-md lg:text-lg font-serif hover:bg-yellow transition-colors font-bold px-2 py-1 lg:px-3 lg:py-1.5 rounded'
             href={link.href}
             key={link.label}
           >

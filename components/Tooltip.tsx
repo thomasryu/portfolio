@@ -14,13 +14,13 @@ export const Tooltip = (props: Props) => {
 
   const closeClassName = `${
     !open
-      ? 'transition-transform ease-jump-out duration-300 ransform translate-y-[calc(100%+0.5rem)] lg:translate-y-[calc(100%+2.5rem)]'
+      ? 'transition-transform ease-jump-out duration-300 translate-y-[calc(100%+0.75rem)] lg:translate-y-[calc(100%+2.5rem)]'
       : ''
   }`
 
   return (
     <Card
-      className={`fixed bottom-2 right-2 lg:bottom-6 lg:right-6 border-4 border-white rounded-xl ${closeClassName} ${props.className}`}
+      className={`fixed bottom-3 right-3 lg:bottom-6 lg:right-6 rounded-lg ${closeClassName} ${props.className}`}
     >
       <button
         className='absolute top-1 right-1'

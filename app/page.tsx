@@ -1,5 +1,3 @@
-import GitHub from '@/icons/github.svg'
-import LinkedIn from '@/icons/linkedin.svg'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -7,6 +5,10 @@ import { url } from '@/data'
 
 import { Container } from '@/components/Container'
 import { Tooltip } from '@/components/Tooltip'
+
+import GitHub from '@/icons/github.svg'
+import LinkedIn from '@/icons/linkedin.svg'
+import Location from '@/icons/location.svg'
 
 const socials = [
   {
@@ -60,11 +62,22 @@ export default function Home() {
 
         {/* Title and description */}
         <h1 className="text-3xl lg:text-4xl text-center font-bold mt-12 lg:mt-20">
-          Hi, my name is <mark className="inline-block bg-yellow rounded px-1 pt-1">Thomas</mark>
+          Hi, my name is{' '}
+          <mark className="inline-block bg-yellow rounded px-1.5 pt-1 lg:px-2 lg:pt-1.5 lg:pb-0.5">Thomas</mark>
         </h1>
         <p className="text-xl lg:text-2xl text-center mt-2 lg:mt-3 w-auto lg:w-1/2 max-w-xl lg:max-w-2xl ">
           I&apos;m a frontend developer with over 6 years of experience, specializing in growth marketing.
         </p>
+
+        <div className="relative z-0 text-md lg:text-lg mt-4 lg:mt-5 text-gray">
+          <span className="bg-white flex items-center border-x-8 border-white">
+            <Location className="w-4 h-4 lg:w-5 lg:h-5 mr-2" /> São Paulo, Brazil
+          </span>
+          <div
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 w-48 lg:w-52 h-[1px] bg-gray"
+            aria-hidden="true"
+          />
+        </div>
 
         {/* Skills */}
         <h2 className="text-2xl lg:text-3xl text-center font-bold mt-16 lg:mt-20">Skills:</h2>
@@ -93,13 +106,13 @@ export default function Home() {
               rel="noopener noreferrer"
               key={social.label}
             >
-              <social.icon className="h-6 w-6" /> <span className="text-md lg:text-lg ml-2">{social.label}</span>
+              <social.icon className="w-6 h-6" /> <span className="text-md lg:text-lg ml-2">{social.label}</span>
             </Link>
           ))}
         </div>
 
         {/* Tooltip */}
-        <Tooltip className="w-64">
+        <Tooltip className="hidden lg:block w-64">
           <span className="block text-sm lg:text-md font-bold pr-6">
             This website was built with the following stack:
           </span>
