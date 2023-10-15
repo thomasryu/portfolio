@@ -6,7 +6,7 @@ export const withLanguages: MiddlewareFactory = (middleware) => {
     const res = await middleware(request, _next)
     if (res) {
       res.headers.set('POTATOOOOOOOOOOOOOOOOOOOOOO', 'nosniff')
-      NextResponse.next(res)
+      return NextResponse.next(res)
     }
 
     return NextResponse.next()

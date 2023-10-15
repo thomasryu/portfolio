@@ -16,6 +16,8 @@ export const withCSP: MiddlewareFactory = (middleware: NextMiddleware) => {
     const result = await middleware(request, event)
 
     if (result) {
+      const response = NextResponse.next(result)
+
       const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
       const cspHeader = `
         default-src 'self';
@@ -31,13 +33,13 @@ export const withCSP: MiddlewareFactory = (middleware: NextMiddleware) => {
         upgrade-insecure-requests;
       `
 
-      result.headers.set('x-nonce', nonce)
-      result.headers.set(
+      response.headers.set('x-nonce', nonce)
+      response.headers.set(
         'Content-Security-Policy',
         cspHeader.replace(/\s{2,}/g, ' ').trim(), // Replace newline characters and spaces
       )
 
-      return NextResponse.next(result)
+      return response
     }
   }
 }
