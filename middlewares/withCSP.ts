@@ -16,7 +16,12 @@ export const withCSP: MiddlewareFactory = (middleware: NextMiddleware) => {
     const result = await middleware(request, event)
 
     if (result) {
-      const response = NextResponse.next(result)
+      // Instead of altering result.headers directly, we createa a NextResponse
+      // from it specially because of the 'script-src nonce', which only when
+      // added through a response actually adds the nonce to <script> tags
+
+      // (It was a pain in the ass solving this, reference: https://stackoverflow.com/a/76567353)
+      const response = NextResponse.next()
 
       const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
       const cspHeader = `
