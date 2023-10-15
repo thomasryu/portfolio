@@ -19,7 +19,7 @@ export const withCSP: MiddlewareFactory = (middleware: NextMiddleware) => {
       const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
       const cspHeader = `
         default-src 'self';
-        script-src 'nonce-${nonce}';
+        script-src 'self' 'nonce-${nonce}' 'strict-dynamic';
         style-src 'self' 'nonce-${nonce}';
         img-src 'self' blob: data:;
         font-src 'self';
@@ -29,13 +29,14 @@ export const withCSP: MiddlewareFactory = (middleware: NextMiddleware) => {
         frame-ancestors 'none';
         block-all-mixed-content;
         upgrade-insecure-requests;
-      `
+    `
 
-      const requestHeaders = new Headers(request.headers) // Uses result's headers as base
+      const requestHeaders = new Headers(request.headers)
       requestHeaders.set('x-nonce', nonce)
       requestHeaders.set(
         'Content-Security-Policy',
-        cspHeader.replace(/\s{2,}/g, ' ').trim(), // Replace newline characters and spaces
+        // Replace newline characters and spaces
+        cspHeader.replace(/\s{2,}/g, ' ').trim(),
       )
 
       return NextResponse.next({
