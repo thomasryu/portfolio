@@ -25,7 +25,7 @@ const socials = [
 
 const skills = [
   {
-    label: 'Development',
+    label: 'Languages / Frameworks',
     tags: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Gatsby', 'WordPress'],
   },
   {
@@ -34,10 +34,10 @@ const skills = [
       'GitHub',
       'Figma',
       'Jira',
-      'Google Tag Manager',
-      'Google Analytics',
       'Vercel',
       'Netlify',
+      'Google Tag Manager',
+      'Google Analytics',
       'HubSpot',
       'Hotjar',
       'Microsoft Clarity',
@@ -61,7 +61,7 @@ export default function Home() {
         />
 
         {/* Title and description */}
-        <h1 className="text-3xl lg:text-4xl text-center font-bold mt-12 lg:mt-20">
+        <h1 className="text-center font-bold mt-12 lg:mt-20">
           Hi, my name is{' '}
           <mark className="inline-block bg-yellow rounded px-1.5 pt-1 lg:px-2 lg:pt-1.5 lg:pb-0.5">Thomas</mark>
         </h1>
@@ -80,11 +80,11 @@ export default function Home() {
         </div>
 
         {/* Skills */}
-        <h2 className="text-2xl lg:text-3xl text-center font-bold mt-16 lg:mt-20">Skills:</h2>
+        <h2 className="text-center mt-16 lg:mt-20">Skills:</h2>
         <div className="flex flex-col items-center mt-4 lg:mt-5 space-y-5 lg:space-y-6">
           {skills.map((skill) => (
             <div className="flex flex-col items-center" key={skill.label}>
-              <h3 className="text-lg lg:text-xl text-center font-bold">{skill.label}</h3>
+              <h3 className="text-center">{skill.label}</h3>
               <div className="flex flex-row justify-center flex-wrap max-w-lg -m-1 mt-0">
                 {skill.tags.map((tag) => (
                   <span className="text-white bg-black px-2 py-1 rounded m-1" key={tag}>
@@ -97,7 +97,7 @@ export default function Home() {
         </div>
 
         {/* Socials */}
-        <h2 className="text-2xl lg:text-3xl text-center font-bold mt-16 lg:mt-24">Socials:</h2>
+        <h2 className="text-center mt-16 lg:mt-24">Socials:</h2>
         <div className="flex flex-row mt-5 lg:mt-6 space-x-5 lg:space-x-8">
           {socials.map((social) => (
             <Link

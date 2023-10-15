@@ -28,7 +28,12 @@
       "@/data": ["data"],
       "@/data/*": ["data/*"],
       "@/icons/*": ["public/images/icons/*"],
-      "@/images/*": ["public/images/*"]
+      "@/images/*": ["public/images/*"],
+      "@/middlewares": ["middlewares"],
+      "@/middlewares/*": ["middlewares/*"],
+      "@/styles/*": ["styles/*"],
+      "@/types": ["types"],
+      "@/types/*": ["types/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

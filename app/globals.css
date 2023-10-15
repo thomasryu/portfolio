@@ -3,17 +3,14 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    overflow-x: hidden;
+  }
+
   body {
     @apply text-black;
     @apply bg-white;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5 {
-    @apply font-serif;
+    width: 100vw;
   }
 
   ul {
@@ -25,30 +22,28 @@
   }
 }
 
-/* For future reference in case
-   I'd like to adapt the portfolio with themes
+@layer components {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply font-serif;
+    @apply font-bold;
+  }
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+  h1 {
+    @apply text-3xl;
+    @apply lg:text-4xl;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  h2 {
+    @apply text-2xl;
+    @apply lg:text-3xl;
+  }
+
+  h3 {
+    @apply text-lg;
+    @apply lg:text-xl;
   }
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-*/

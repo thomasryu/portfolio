@@ -9,7 +9,7 @@
   "importOrder": [
     "<THIRD_PARTY_MODULES>",
     "^[./]",
-    "^@/(data|types|utils)(/.*)?$",
+    "^@/(data|styles|types|utils)(/.*)?$",
     "^@/components/(.*)$",
     "^@/(documents|icons|images|videos)/(.*)$"
   ],

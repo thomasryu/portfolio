@@ -33,7 +33,7 @@ export const Navbar = (props: Props) => (
       <div className='space-x-2 ml-auto'>
         {links.map((link) => (
           <Link
-            className='text-md lg:text-lg font-serif hover:bg-yellow transition-colors font-bold px-2 py-1 lg:px-3 lg:py-1.5 rounded'
+            className='text-md lg:text-lg font-serif hover:bg-yellow transition-colors font-bold px-2 py-1 lg:px-3 lg:pt-1.5 lg:pb-1 rounded'
             href={link.href}
             key={link.label}
           >
