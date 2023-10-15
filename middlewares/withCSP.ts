@@ -31,12 +31,11 @@ export const withCSP: MiddlewareFactory = (middleware: NextMiddleware) => {
         upgrade-insecure-requests;
     `
 
-      const requestHeaders = new Headers(request.headers)
+      const requestHeaders = new Headers(result.headers) // We use result's headers as base
       requestHeaders.set('x-nonce', nonce)
       requestHeaders.set(
         'Content-Security-Policy',
-        // Replace newline characters and spaces
-        cspHeader.replace(/\s{2,}/g, ' ').trim(),
+        cspHeader.replace(/\s{2,}/g, ' ').trim(), // Replace newline characters and spaces
       )
 
       return NextResponse.next({
@@ -46,6 +45,8 @@ export const withCSP: MiddlewareFactory = (middleware: NextMiddleware) => {
         },
       })
     }
+
+    return NextResponse.next()
   }
 }
 
