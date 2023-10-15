@@ -16,13 +16,6 @@ export const withCSP: MiddlewareFactory = (middleware: NextMiddleware) => {
     const result = await middleware(request, event)
 
     if (result) {
-      // Instead of altering result.headers directly, we createa a NextResponse
-      // from it specially because of the 'script-src nonce', which only when
-      // added through a response actually adds the nonce to <script> tags
-
-      // (It was a pain in the ass solving this, reference: https://stackoverflow.com/a/76567353)
-      const response = NextResponse.next()
-
       const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
       const cspHeader = `
         default-src 'self';
@@ -38,13 +31,19 @@ export const withCSP: MiddlewareFactory = (middleware: NextMiddleware) => {
         upgrade-insecure-requests;
       `
 
-      response.headers.set('x-nonce', nonce)
-      response.headers.set(
+      const requestHeaders = new Headers(result.headers) // Uses result's headers as base
+      requestHeaders.set('x-nonce', nonce)
+      requestHeaders.set(
         'Content-Security-Policy',
         cspHeader.replace(/\s{2,}/g, ' ').trim(), // Replace newline characters and spaces
       )
 
-      return response
+      return NextResponse.next({
+        headers: requestHeaders,
+        request: {
+          headers: requestHeaders,
+        },
+      })
     }
   }
 }
