@@ -1,10 +1,5 @@
 import { MiddlewareFactory } from '@/types'
-import {
-  NextFetchEvent,
-  NextMiddleware,
-  NextRequest,
-  NextResponse,
-} from 'next/server'
+import { NextFetchEvent, NextMiddleware, NextRequest } from 'next/server'
 
 export const withCSP: MiddlewareFactory = (middleware: NextMiddleware) => {
   return async (request: NextRequest, event: NextFetchEvent) => {
@@ -30,19 +25,13 @@ export const withCSP: MiddlewareFactory = (middleware: NextMiddleware) => {
         upgrade-insecure-requests;
       `
 
-      const requestHeaders = new Headers(request.headers)
-      requestHeaders.set('x-nonce', nonce)
-      requestHeaders.set(
+      result.headers.set('x-nonce', nonce)
+      result.headers.set(
         'Content-Security-Policy',
         cspHeader.replace(/\s{2,}/g, ' ').trim(), // Replace newline characters and spaces
       )
 
-      return NextResponse.next({
-        headers: requestHeaders,
-        request: {
-          headers: requestHeaders,
-        },
-      })
+      return result
     }
   }
 }
