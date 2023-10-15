@@ -31,7 +31,7 @@ export const withCSP: MiddlewareFactory = (middleware: NextMiddleware) => {
         upgrade-insecure-requests;
       `
 
-      const requestHeaders = new Headers(result.headers) // Uses result's headers as base
+      const requestHeaders = new Headers(request.headers) // Uses result's headers as base
       requestHeaders.set('x-nonce', nonce)
       requestHeaders.set(
         'Content-Security-Policy',
