@@ -1,5 +1,10 @@
 import { MiddlewareFactory } from '@/types'
-import { NextFetchEvent, NextMiddleware, NextRequest } from 'next/server'
+import {
+  NextFetchEvent,
+  NextMiddleware,
+  NextRequest,
+  NextResponse,
+} from 'next/server'
 
 export const withCSP: MiddlewareFactory = (middleware: NextMiddleware) => {
   return async (request: NextRequest, event: NextFetchEvent) => {
@@ -13,7 +18,7 @@ export const withCSP: MiddlewareFactory = (middleware: NextMiddleware) => {
       const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
       const cspHeader = `
         default-src 'self';
-        script-src 'self' 'nonce-${nonce}' 'strict-dynamic';
+        script-src 'nonce-${nonce}';
         style-src 'self' 'nonce-${nonce}';
         img-src 'self' blob: data:;
         font-src 'self';
@@ -25,13 +30,19 @@ export const withCSP: MiddlewareFactory = (middleware: NextMiddleware) => {
         upgrade-insecure-requests;
       `
 
-      result.headers.set('x-nonce', nonce)
-      result.headers.set(
+      const requestHeaders = new Headers(request.headers)
+      requestHeaders.set('x-nonce', nonce)
+      requestHeaders.set(
         'Content-Security-Policy',
         cspHeader.replace(/\s{2,}/g, ' ').trim(), // Replace newline characters and spaces
       )
 
-      return result
+      return NextResponse.next({
+        headers: requestHeaders,
+        request: {
+          headers: requestHeaders,
+        },
+      })
     }
   }
 }
@@ -50,8 +61,6 @@ const matcher = (request: NextRequest) => {
   const routerPrefetch = request.headers.has('next-router-prefetch')
   const purposePrefetch = request.headers.get('purpose') === 'prefetch'
   const headersMatch = routerPrefetch || purposePrefetch
-
-  console.log(routerPrefetch, purposePrefetch)
 
   return sourceMatch && !headersMatch
 }

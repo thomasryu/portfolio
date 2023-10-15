@@ -1,7 +1,6 @@
 import { NextMiddleware, NextResponse } from 'next/server'
 import { MiddlewareFactory } from '@/types'
 
-// A utility function which helps nest out middleware HOCs array
 export function stackMiddlewares(
   middlewares: MiddlewareFactory[] = [],
   index = 0,
