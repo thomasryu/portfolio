@@ -1,6 +1,12 @@
 import { MiddlewareFactory } from '@/types'
-import { NextFetchEvent, NextMiddleware, NextRequest } from 'next/server'
+import {
+  NextFetchEvent,
+  NextMiddleware,
+  NextRequest,
+  NextResponse,
+} from 'next/server'
 
+// Adds Content Security Protocol headers to our requests
 export const withCSP: MiddlewareFactory = (middleware: NextMiddleware) => {
   return async (request: NextRequest, event: NextFetchEvent) => {
     if (!matcher(request)) {
@@ -31,7 +37,7 @@ export const withCSP: MiddlewareFactory = (middleware: NextMiddleware) => {
         cspHeader.replace(/\s{2,}/g, ' ').trim(), // Replace newline characters and spaces
       )
 
-      return result
+      return NextResponse.next(result)
     }
   }
 }

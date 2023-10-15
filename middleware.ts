@@ -1,5 +1,4 @@
-import { stackMiddlewares, withCSP } from '@/middlewares'
-import { withLogging } from './middlewares/withLogging'
+import { chainMiddlewares, withCSP, withLanguages } from '@/middlewares'
 
-const middlewares = [withLogging, withCSP]
-export default stackMiddlewares(middlewares)
+const middlewares = [withLanguages, withCSP]
+export default chainMiddlewares(middlewares)

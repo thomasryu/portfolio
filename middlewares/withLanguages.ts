@@ -1,12 +1,14 @@
 import { NextFetchEvent, NextRequest, NextResponse } from 'next/server'
 import { MiddlewareFactory } from '@/types'
-export const withLogging: MiddlewareFactory = (next) => {
+
+export const withLanguages: MiddlewareFactory = (middleware) => {
   return async (request: NextRequest, _next: NextFetchEvent) => {
-    const res = await next(request, _next)
+    const res = await middleware(request, _next)
     if (res) {
       res.headers.set('POTATOOOOOOOOOOOOOOOOOOOOOO', 'nosniff')
+      NextResponse.next(res)
     }
 
-    return res
+    return NextResponse.next()
   }
 }

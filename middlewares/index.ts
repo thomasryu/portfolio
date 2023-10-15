@@ -1,2 +1,3 @@
 export * from './withCSP'
-export * from './stackMiddlewares'
+export * from './withLanguages'
+export * from './chainMiddlewares'
