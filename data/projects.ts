@@ -20,11 +20,20 @@ export const projects: Project[] = [
     },
 
     image: [
-      { type: 'mobile', src: '/images/projects/cobli-mobile.png', alt: '' },
-      { type: 'desktop', src: '/images/projects/cobli-desktop.png', alt: '' },
+      {
+        type: 'desktop',
+        src: '/images/projects/cobli-desktop.png',
+        alt: "Desktop version of Cobli's website home page",
+      },
+      {
+        type: 'mobile',
+        src: '/images/projects/cobli-mobile.png',
+        alt: "Mobile version of Cobli's website home page",
+      },
     ],
 
-    description: '',
+    description:
+      "Cobli was my first experience with React. Back in 2018, I was tasked with building the company's website from scratch, using Gatsby and Netlify.",
     tags: ['HTML', 'CSS', 'TypeScript', 'React', 'Next.js', 'Styled JSX'],
   },
 ]

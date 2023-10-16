@@ -14,6 +14,16 @@ const config: Config = {
         serif: ['var(--font-nunito)'],
       },
 
+      aspectRatio: {
+        mobile: '390 / 840',
+        desktop: '1366 / 840',
+      },
+
+      width: {
+        mobile: 'calc(100% * (390 / 1756))',
+        desktop: 'calc(100% * (1366 / 1756))',
+      },
+
       colors: {
         black: colors.gray[900],
         white: colors.gray[50],
