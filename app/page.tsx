@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { url } from '@/data'
 
 import { Container } from '@/components/Container'
+import { Tag } from '@/components/Tag'
 import { Tooltip } from '@/components/Tooltip'
 
 import GitHub from '@/icons/github.svg'
@@ -37,7 +38,7 @@ const skills = [
       'Vercel',
       'Netlify',
       'Google Tag Manager',
-      'Google Analytics',
+      'Google Analytics 4',
       'HubSpot',
       'Hotjar',
       'Microsoft Clarity',
@@ -87,9 +88,9 @@ export default function Home() {
               <h3 className="text-center">{skill.label}</h3>
               <div className="flex flex-row justify-center flex-wrap max-w-lg -m-1 mt-0">
                 {skill.tags.map((tag) => (
-                  <span className="text-white bg-black px-2 py-1 rounded m-1" key={tag}>
+                  <Tag className="m-1" key={tag}>
                     {tag}
-                  </span>
+                  </Tag>
                 ))}
               </div>
             </div>
@@ -116,7 +117,7 @@ export default function Home() {
           <span className="block text-sm lg:text-md font-bold pr-6">
             This website was built with the following stack:
           </span>
-          <ul className="list-disc mt-3 space-y-2">
+          <ul className="mt-3 space-y-2">
             <li className="text-sm lg:text-md">React</li>
             <li className="text-sm lg:text-md">TypeScript</li>
             <li className="text-sm lg:text-md">Next.js</li>

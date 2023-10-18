@@ -14,7 +14,8 @@
   }
 
   ul {
-    list-style-position: inside;
+    list-style-type: disc;
+    padding-left: 1.25rem;
   }
 
   a {
