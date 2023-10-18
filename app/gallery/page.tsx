@@ -10,7 +10,7 @@ export default function GalleryPage() {
         <h1>Gallery</h1>
 
         <p className="text-lg lg:text-xl max-w-2xl lg:max-w-5xl mt-10 lg:mt-14">
-          During the pandemic (2020), I've started doing digital illustrations (and some 3D modeling) as a hobby do
+          During the pandemic (2020), I&apos;ve started doing digital illustrations (and some 3D modeling) as a hobby do
           destress and pass the time. Here are some of the pieces I am most proud of!
         </p>
 

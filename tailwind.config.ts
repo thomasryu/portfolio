@@ -10,7 +10,7 @@ const config: Config = {
   theme: {
     extend: {
       animation: {
-        'fade-in': 'fade-in .3s ease forward',
+        'fade-in': 'fade .3s ease forwards',
       },
 
       aspectRatio: {
@@ -33,7 +33,7 @@ const config: Config = {
       },
 
       keyframes: {
-        'fade-in': {
+        fade: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
         },
