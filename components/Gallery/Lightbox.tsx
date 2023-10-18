@@ -15,16 +15,16 @@ type Props = {
   className?: string
 }
 
-export default (props: Props) => {
+const Lightbox = (props: Props) => {
   const [current, setCurrent] = useState(props.current || 0)
   const image = props.images[current]
 
   return (
     <Overlay open onClose={props.onClose}>
       <div className='w-full h-full p-2 lg:p-10'>
-        <div className='relative w-full h-full max-h-[calc(100% - 48rem)] '>
+        <div className='relative w-full h-full max-h-[calc(100% - 48rem)]'>
           <Image
-            className='object-contain rounded'
+            className='object-contain rounded animate-fade-in'
             src={image.src}
             alt={image.alt}
             fill
@@ -34,3 +34,5 @@ export default (props: Props) => {
     </Overlay>
   )
 }
+
+export default Lightbox

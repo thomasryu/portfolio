@@ -9,19 +9,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['var(--font-nunito-sans)'],
-        serif: ['var(--font-nunito)'],
+      animation: {
+        'fade-in': 'fade-in .3s ease forward',
       },
 
       aspectRatio: {
         mobile: '390 / 840',
         desktop: '1366 / 840',
-      },
-
-      width: {
-        mobile: 'calc(100% * (390 / 1756))',
-        desktop: 'calc(100% * (1366 / 1756))',
       },
 
       colors: {
@@ -33,9 +27,26 @@ const config: Config = {
         yellow: colors.yellow[400],
       },
 
+      fontFamily: {
+        sans: ['var(--font-nunito-sans)'],
+        serif: ['var(--font-nunito)'],
+      },
+
+      keyframes: {
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+      },
+
       transitionTimingFunction: {
         'jump-in': 'cubic-bezier(0, 1.63, 0.83, 1.2)',
         'jump-out': 'cubic-bezier(0.38,-0.36, 0.78,-0.05)',
+      },
+
+      width: {
+        mobile: 'calc(100% * (390 / 1756))',
+        desktop: 'calc(100% * (1366 / 1756))',
       },
     },
   },

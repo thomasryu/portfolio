@@ -30,21 +30,27 @@ export const Gallery = (props: Props) => {
   return (
     <>
       {/* Gallery */}
-      <div className={`flex space-x-2 ${props.className}`}>
-        {props.images.map((image, index) => (
-          <div className='' onClick={() => handleClick(index)}>
-            <Image
-              className='h-full w-auto object-contain'
-              src={image.src}
-              alt={image.alt}
-              width={image.size?.width}
-              height={image.size?.height}
+      <div className={`flex flex-wrap ${props.className}`}>
+        <div className='-m-2 flex flex-wrap'>
+          {props.images.map((image, index) => (
+            <div
+              className='shrink max-h-48 lg:max-h-64 m-2 rounded overflow-hidden cursor-pointer shadow lg:shadow-lg lg:hover:shadow transition-shadow'
+              onClick={() => handleClick(index)}
+              key={image.src}
               style={{
                 aspectRatio: `${image.size?.width}/${image.size?.height}`,
               }}
-            />
-          </div>
-        ))}
+            >
+              <Image
+                className='object-contain'
+                src={image.src}
+                alt={image.alt}
+                width={image.size?.width}
+                height={image.size?.height}
+              />
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Lightbox */}

@@ -6,7 +6,7 @@ import { projects } from '@/data'
 import { Container } from '@/components/Container'
 import { Tag } from '@/components/Tag'
 
-export default function Projects() {
+export default function ProjectsPage() {
   return (
     <main className="pt-12 pb-32 lg:pt-20 lg:pb-40">
       <Container>

@@ -13,6 +13,7 @@ export const Overlay = forwardRef<HTMLDivElement, Props>(
   ({ open, onClose, children }, ref) => {
     const handleEscapePress = useCallback(
       () => (e: KeyboardEvent) => {
+        console.log(e.key)
         if (e.key === 'Escape' && onClose) {
           onClose()
         }

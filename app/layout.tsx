@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${nunito.variable} ${nunito_sans.variable}`}>
-      <body>
+      <body className="overflow-x-hidden">
         <Navbar />
         {children}
         <Analytics />

@@ -7,7 +7,7 @@ import { Container } from '@/components/Container'
 
 import Mail from '@/icons/mail.svg'
 
-export default function Contact() {
+export default function ContactPage() {
   return (
     <main className="pt-12 pb-32 lg:pt-20 lg:pb-40">
       <Container>

@@ -7,16 +7,16 @@ type Props = {}
 
 export const links = [
   {
-    label: 'About',
-    href: '/about',
+    label: 'Contact',
+    href: '/contact',
   },
   {
     label: 'Projects',
     href: '/projects',
   },
   {
-    label: 'Contact',
-    href: '/contact',
+    label: 'Gallery',
+    href: '/gallery',
   },
 ]
 

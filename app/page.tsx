@@ -47,7 +47,7 @@ const skills = [
   { label: 'Growth', tags: ['Technical SEO', 'A/B Testing'] },
 ]
 
-export default function Home() {
+export default function HomePage() {
   return (
     <main className="pt-12 pb-32 lg:pt-20 lg:pb-40">
       <Container className="flex flex-col items-center justify-between">
