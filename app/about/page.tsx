@@ -1,33 +1,31 @@
-import Image from 'next/image'
-
 import { Container } from '@/components/Container'
+import { Gallery } from '@/components/Gallery'
 
 export default function About() {
+  const images = [
+    {
+      src: '/images/projects/cobli-mobile.png',
+      alt: '',
+      size: {
+        width: 390,
+        height: 840,
+      },
+    },
+    {
+      src: '/images/projects/cobli-desktop.png',
+      alt: '',
+      size: {
+        width: 1366,
+        height: 840,
+      },
+    },
+  ]
   return (
     <main className="pt-12 pb-32 lg:pt-20 lg:pb-40">
       <Container>
         <h1>About</h1>
 
-        <div className="flex min-h-screen items-center justify-center">
-          <div className="flex items-center justify-center gap-20 [filter:url(#gooey)]">
-            <div className="animate-movealt h-60 w-60 rounded-full bg-zinc-300 bg-gradient-to-br from-white to-zinc-400 shadow-inner shadow-white"></div>
-
-            <div className="animate-move h-40 w-40 rounded-full bg-zinc-300 bg-gradient-to-br from-white to-zinc-400 shadow-inner shadow-white"></div>
-          </div>
-        </div>
-
-        <svg>
-          <filter id="gooey">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="25" />
-            <feColorMatrix
-              values="
-                  1 0 0 0 0
-                  0 1 0 0 0
-                  0 0 1 0 0
-                  0 0 0 90 -25"
-            />
-          </filter>
-        </svg>
+        <Gallery className="w-full h-48" images={images} />
       </Container>
     </main>
   )

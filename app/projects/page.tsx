@@ -39,17 +39,23 @@ export default function Projects() {
               {/* Images */}
               <div className="flex flex-row items-center space-x-2 lg:space-x-5 mt-8">
                 {[project.image].flat().map((image) => (
-                  <Image
+                  <Link
                     className={`block shrink min-w-0 ${
                       image.type === 'mobile' ? 'w-mobile' : 'w-desktop'
-                    } rounded shadow lg:shadow-lg`}
-                    src={image.src}
-                    alt={image.alt}
-                    width={image.type === 'mobile' ? 390 : 1366}
-                    height={840}
-                    priority={index === 0}
+                    } rounded overflow-hidden shadow lg:shadow-lg lg:hover:shadow transition-shadow`}
+                    href={project.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     key={image.src}
-                  />
+                  >
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      width={image.type === 'mobile' ? 390 : 1366}
+                      height={840}
+                      priority={index === 0}
+                    />
+                  </Link>
                 ))}
               </div>
 

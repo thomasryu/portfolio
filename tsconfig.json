@@ -25,6 +25,8 @@
     "paths": {
       // "@/*": ["./*"],
       "@/components/*": ["components/*"],
+      "@/contexts": ["contexts"],
+      "@/contexts/*": ["contexts/*"],
       "@/data": ["data"],
       "@/data/*": ["data/*"],
       "@/icons/*": ["public/images/icons/*"],
