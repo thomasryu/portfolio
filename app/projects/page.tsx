@@ -12,7 +12,7 @@ export default function ProjectsPage() {
       <Container>
         <h1 className="text-3xl lg:text-4xl font-bold">Projects</h1>
 
-        <div className="mt-10 lg:mt-14 space-y-4">
+        <div className="mt-10 lg:mt-14 space-y-12 lg:space-y-16">
           {projects.map((project, index) => (
             <div key={project.name}>
               {/* Label, Title, Date */}
@@ -38,7 +38,7 @@ export default function ProjectsPage() {
 
               {/* Images */}
               <div className="flex flex-row items-center space-x-2 lg:space-x-5 mt-8">
-                {[project.image].flat().map((image) => (
+                {[project.images].flat().map((image) => (
                   <Link
                     className={`block shrink min-w-0 ${
                       image.type === 'mobile' ? 'w-mobile' : 'w-desktop'
@@ -61,7 +61,13 @@ export default function ProjectsPage() {
               </div>
 
               {/* Description */}
-              <p className="text-lg lg:text-xl max-w-2xl lg:max-w-5xl mt-7 lg:mt-9">{project.description}</p>
+              <p
+                className={`text-lg lg:text-xl max-w-2xl mt-7 lg:mt-9 ${
+                  [project.images].flat().length > 1 ? 'lg:max-w-5xl' : 'lg:max-w-3xl'
+                }`}
+              >
+                {project.description}
+              </p>
               {project.items && (
                 <ul className="text-lg mt-5 lg:mt-6 space-y-2 lg:space-y-1">
                   {project.items.map((item) => (

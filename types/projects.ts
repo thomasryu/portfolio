@@ -1,5 +1,5 @@
 export type Project = {
-  label: 'Website' | 'Misc.'
+  label: 'Website' | 'Personal'
   name: string
   href: string
   date:
@@ -9,7 +9,7 @@ export type Project = {
         end: string
       }
 
-  image: ProjectImage | ProjectImage[]
+  images: ProjectImage | ProjectImage[]
   description: string
   items?: string[]
   tags: string[]

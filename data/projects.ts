@@ -11,7 +11,7 @@ export const projects: Project[] = [
   //     end: '',
   //   },
 
-  //   image: [
+  //   images: [
   //     {
   //       type: 'desktop',
   //       src: '/images/projects/-desktop.png',
@@ -40,7 +40,7 @@ export const projects: Project[] = [
       end: 'present',
     },
 
-    image: [
+    images: [
       {
         type: 'desktop',
         src: '/images/projects/cobli-desktop.png',
@@ -72,5 +72,41 @@ export const projects: Project[] = [
       'Google Analytics 4',
       'Google Optimize',
     ],
+  },
+
+  // {
+  //   label: 'Personal',
+  //   name: 'The SeDAN Crew',
+  //   href: 'https://the-sedan-crew.netlify.app',
+
+  //   date: '2021',
+
+  //   images: {
+  //     type: 'desktop',
+  //     src: '/images/projects/the-sedan-crew-desktop.png',
+  //     alt: 'A 3D model of a pink and blue sedan with 6 characters: 4 inside the car and 2 outside.',
+  //   },
+
+  //   description: `A silly personal project, made to apply the things I've learned with Bruno Simon's (@bruno_simon) Three.js Journey course. 3D models and illustrations done by me!`,
+
+  //   tags: ['HTML', 'CSS', 'JavaScript', 'Three.js', 'Blender'],
+  // },
+
+  {
+    label: 'Personal',
+    name: 'Three.js Portal',
+    href: 'https://threejs-portal.netlify.app',
+
+    date: '2021',
+
+    images: {
+      type: 'desktop',
+      src: '/images/projects/threejs-portal-desktop.png',
+      alt: 'A 3D model of a pink stone portal with a pink hue. Around it an assortment of stones, cut tree logs, fences and lamp posts.',
+    },
+
+    description: `A Three.js (a 3D rendering library for JavaScript) and 3D modeling exercise, done for one of Bruno Simon's (@bruno_simon) Three.js Journey courses.`,
+
+    tags: ['HTML', 'CSS', 'JavaScript', 'Three.js', 'Blender'],
   },
 ]
