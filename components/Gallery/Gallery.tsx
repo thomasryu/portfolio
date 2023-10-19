@@ -34,7 +34,7 @@ export const Gallery = (props: Props) => {
         <div className='-m-2 flex flex-wrap'>
           {props.images.map((image, index) => (
             <div
-              className='shrink max-h-40 lg:max-h-64 m-2 rounded overflow-hidden cursor-pointer shadow lg:shadow-lg lg:hover:shadow transition-shadow'
+              className='shrink max-h-44 lg:max-h-64 m-2 rounded overflow-hidden cursor-pointer shadow lg:shadow-lg lg:hover:shadow transition-shadow'
               style={{
                 aspectRatio: `${image.size?.width}/${image.size?.height}`,
               }}

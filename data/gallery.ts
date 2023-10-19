@@ -11,6 +11,14 @@ export const gallery: Image[] = [
   // },
 
   {
+    src: '/images/gallery/the-meeting.jpg',
+    alt: 'An illustration of one hand tenderly passing a small glass cup to the other. Plants cover the edges of the illustration, and a bright burgundy circle sits at the back, giving contrast to the rest of the piece.',
+    size: {
+      width: 1260,
+      height: 1800,
+    },
+  },
+  {
     src: '/images/gallery/color-wheel.png',
     alt: 'A drawing of a color wheel filled with popular characters.',
     size: {
