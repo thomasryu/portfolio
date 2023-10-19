@@ -1,19 +1,27 @@
 'use client'
 
-import { forwardRef, useCallback, useEffect } from 'react'
+import { MouseEvent, forwardRef, useCallback, useEffect, useRef } from 'react'
 import { Portal } from './Portal'
 
 type Props = {
   open: boolean
   children: React.ReactNode
   onClose?: () => void
+
+  className?: string
 }
 
 export const Overlay = forwardRef<HTMLDivElement, Props>(
-  ({ open, onClose, children }, ref) => {
-    const handleEscapePress = useCallback(
+  ({ open, onClose, className, children }, ref) => {
+    const contentRef = useRef<HTMLDivElement>(null)
+
+    const toggleScrolling = (lock: boolean) => {
+      document.body.style.overflow = lock ? 'hidden' : 'visible'
+      document.documentElement.style.overflow = lock ? 'hidden' : 'visible'
+    }
+
+    const handleEscPress = useCallback(
       () => (e: KeyboardEvent) => {
-        console.log(e.key)
         if (e.key === 'Escape' && onClose) {
           onClose()
         }
@@ -21,10 +29,19 @@ export const Overlay = forwardRef<HTMLDivElement, Props>(
       [onClose],
     )
 
+    const handleContentClick = (e: MouseEvent<HTMLDivElement>) => {
+      e.stopPropagation()
+    }
+
     useEffect(() => {
-      document.addEventListener('keydown', handleEscapePress)
-      return () => document.removeEventListener('keydown', handleEscapePress)
-    }, [handleEscapePress])
+      toggleScrolling(open)
+      return () => toggleScrolling(false)
+    }, [open])
+
+    useEffect(() => {
+      document.addEventListener('keydown', handleEscPress)
+      return () => document.removeEventListener('keydown', handleEscPress)
+    }, [handleEscPress])
 
     const opacityMap = {
       open: 'visible opacity-100 transition-opacity',
@@ -34,13 +51,13 @@ export const Overlay = forwardRef<HTMLDivElement, Props>(
     return (
       <Portal>
         <div
-          className={`absolute top-0 left-0 flex justify-center items-center w-screen h-screen bg-black bg-opacity-80 ${
+          className={`fixed top-0 left-0 bottom-0 right-0 flex justify-center items-center bg-black bg-opacity-90 ${
             open ? opacityMap.open : opacityMap.close
-          }`}
+          } ${className}`}
           onClick={onClose}
           ref={ref}
         >
-          {children}
+          <div onClick={(e) => handleContentClick(e)}>{children}</div>
         </div>
       </Portal>
     )

@@ -54,13 +54,12 @@ export const projects: Project[] = [
     ],
 
     description:
-      "I built Cobli's website and blog from scratch using Gatsby (a React-based framework) and WordPress, respectively. I later refactored the website to the more modern Next.js, improving not only code quality, but also scalability and performance.",
-    // items: [
-    //   'Developing new pages, tools, and components',
-    //   'Adding and maintaining analytics and tracking, and CRM workflows',
-    //   'Implementing technical SEO improvements to better rank our platforms in search results',
-    //   'Implementing A/B tests to improve our conversion rates',
-    // ],
+      "I built Cobli's website and blog from scratch using Gatsby (a React-based framework) and WordPress, respectively. I later refactored the website to the more modern Next.js, improving not only code quality, but also scalability and performance. Besides development, some of my responsibilities are:",
+    items: [
+      'Adding and maintaining analytics and tracking, and CRM workflows',
+      'Implementing technical SEO improvements to better rank our platforms in search results',
+      'Implementing A/B tests to improve our conversion rates',
+    ],
 
     tags: [
       'HTML',

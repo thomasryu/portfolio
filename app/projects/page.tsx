@@ -49,6 +49,7 @@ export default function ProjectsPage() {
                     key={image.src}
                   >
                     <Image
+                      className="bg-light-gray"
                       src={image.src}
                       alt={image.alt}
                       width={image.type === 'mobile' ? 390 : 1366}

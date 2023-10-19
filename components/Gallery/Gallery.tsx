@@ -34,15 +34,15 @@ export const Gallery = (props: Props) => {
         <div className='-m-2 flex flex-wrap'>
           {props.images.map((image, index) => (
             <div
-              className='shrink max-h-48 lg:max-h-64 m-2 rounded overflow-hidden cursor-pointer shadow lg:shadow-lg lg:hover:shadow transition-shadow'
-              onClick={() => handleClick(index)}
-              key={image.src}
+              className='shrink max-h-40 lg:max-h-64 m-2 rounded overflow-hidden cursor-pointer shadow lg:shadow-lg lg:hover:shadow transition-shadow'
               style={{
                 aspectRatio: `${image.size?.width}/${image.size?.height}`,
               }}
+              onClick={() => handleClick(index)}
+              key={image.src}
             >
               <Image
-                className='object-contain'
+                className='object-contain bg-light-gray'
                 src={image.src}
                 alt={image.alt}
                 width={image.size?.width}
@@ -57,9 +57,9 @@ export const Gallery = (props: Props) => {
       {open && (
         <Lightbox
           images={props.images}
-          open={open}
           current={current}
           onClose={handleClose}
+          open
         />
       )}
     </>

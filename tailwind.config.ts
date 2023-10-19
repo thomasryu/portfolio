@@ -21,6 +21,8 @@ const config: Config = {
       colors: {
         black: colors.gray[900],
         white: colors.gray[50],
+
+        'light-gray': colors.gray[200],
         gray: colors.gray[400],
         'dark-gray': colors.gray[600],
 
