@@ -13,7 +13,7 @@ export default function ContactPage() {
       <Container>
         <h1>Contact</h1>
 
-        <div className="mt-5 lg:mt-6">
+        <div className="mt-10 lg:mt-14">
           <Link className="inline-flex flex-row items-center hover:underline mr-auto" href={`mailto:${contact.email}`}>
             <Mail className="w-6 h-6" /> <span className="text-md lg:text-lg ml-2">{contact.email}</span>
           </Link>
