@@ -42,7 +42,7 @@ export const Gallery = (props: Props) => {
               key={image.src}
             >
               <Image
-                className='object-contain bg-light-gray'
+                className='object-contain bg-light-gray animate-fade-in'
                 src={image.src}
                 alt={image.alt}
                 width={image.size?.width}

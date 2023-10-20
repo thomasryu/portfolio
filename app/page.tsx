@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -47,13 +48,18 @@ const skills = [
   { label: 'Growth', tags: ['Technical SEO', 'A/B Testing'] },
 ]
 
+export const metadata: Metadata = {
+  title: 'Thomas | Frontend Developer',
+  description: "I'm a frontend developer with over 6 years of experience, specializing in growth marketing.",
+}
+
 export default function HomePage() {
   return (
     <main className="pt-12 pb-32 lg:pt-20 lg:pb-40">
       <Container className="flex flex-col items-center justify-between">
         {/* Main image */}
         <Image
-          className="bg-gradient-to-b from-transparent to-yellow to-70% rounded-full w-48 lg:w-56"
+          className="bg-gradient-to-b from-transparent to-yellow to-70% rounded-full w-48 lg:w-56 animate-fade-in"
           src="/images/portraits/thomas-transparent.png"
           alt="Thomas"
           width={320}
@@ -82,11 +88,11 @@ export default function HomePage() {
 
         {/* Skills */}
         <h2 className="text-center mt-16 lg:mt-20">Skills:</h2>
-        <div className="flex flex-col items-center mt-4 lg:mt-5 space-y-5 lg:space-y-6">
+        <div className="flex flex-col items-center mt-4 lg:mt-5 space-y-6 lg:space-y-7">
           {skills.map((skill) => (
             <div className="flex flex-col items-center" key={skill.label}>
               <h3 className="text-center">{skill.label}</h3>
-              <div className="flex flex-row justify-center flex-wrap max-w-lg -m-1 mt-0">
+              <div className="flex flex-row justify-center flex-wrap max-w-lg -m-1 mt-1">
                 {skill.tags.map((tag) => (
                   <Tag className="m-1" key={tag}>
                     {tag}

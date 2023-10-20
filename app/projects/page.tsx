@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -5,6 +6,11 @@ import { projects } from '@/data'
 
 import { Container } from '@/components/Container'
 import { Tag } from '@/components/Tag'
+
+export const metadata: Metadata = {
+  title: 'Thomas | Projects',
+  description: "Some of the projects I've worked on over the years as a frontend developer.",
+}
 
 export default function ProjectsPage() {
   return (
@@ -49,7 +55,7 @@ export default function ProjectsPage() {
                     key={image.src}
                   >
                     <Image
-                      className="bg-light-gray"
+                      className="bg-light-gray animate-fade-in"
                       src={image.src}
                       alt={image.alt}
                       width={image.type === 'mobile' ? 390 : 1366}
