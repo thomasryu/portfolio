@@ -1,15 +1,16 @@
 'use client'
 
-import { useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Overlay } from '../Overlay'
 
 import Close from '@/icons/close.svg'
+import Caret from '@/icons/caret.svg'
 
-import { Image as ImageType } from '@/types'
-import Image from 'next/image'
+import { Image } from '@/types'
+import NextImage from 'next/image'
 
 type Props = {
-  images: ImageType[]
+  images: Image[]
   current?: number
 
   open: boolean
@@ -19,16 +20,54 @@ type Props = {
 }
 
 const Lightbox = (props: Props) => {
-  const [current, setCurrent] = useState(props.current || 0)
+  const [current, setCurrent] = useState(props.current ?? 0)
   const image = props.images[current]
 
+  const handleArrowClick = (next?: boolean) => {
+    const { length } = props.images
+    setCurrent((length + current + (next ? 1 : -1)) % length)
+  }
+
+  const handleArrowPress = useCallback(
+    (e: KeyboardEvent) => {
+      const { length } = props.images
+      switch (e.key) {
+        case 'ArrowLeft':
+          setCurrent((length + current - 1) % length)
+          break
+        case 'ArrowRight':
+          setCurrent((length + current + 1) % length)
+          break
+      }
+    },
+    [current],
+  )
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleArrowPress)
+    return () => document.removeEventListener('keydown', handleArrowPress)
+  }, [handleArrowPress])
+
   return (
-    <Overlay onClose={props.onClose} open>
+    <Overlay className='text-gray' onClose={props.onClose} open>
       <button
         className='absolute top-1 right-1 shrink-0 p-2 z-10'
         onClick={props.onClose}
       >
-        <Close className='text-gray w-8 h-8 lg:w-12 lg:h-12' />
+        <Close className='w-8 h-8 lg:w-12 lg:h-12' />
+      </button>
+
+      <button
+        className='shrink-0 absolute top-1/2 left-1 -translate-y-1/2 p-2 lg:p-4 z-10'
+        onClick={() => handleArrowClick()}
+      >
+        <Caret className='w-6 h-6 lg:w-8 lg:h-8 rotate-180' />
+      </button>
+      <button
+        className='shrink-0 absolute top-1/2 right-1 -translate-y-1/2 p-2 lg:p-4 z-10'
+        onClick={() => handleArrowClick(true)}
+      >
+        <Caret className='w-6 h-6 lg:w-8 lg:h-8' />
       </button>
 
       <div
@@ -37,7 +76,7 @@ const Lightbox = (props: Props) => {
           aspectRatio: `${image.size?.width}/${image.size?.height}`,
         }}
       >
-        <Image
+        <NextImage
           className='object-contain rounded lg:rounded-lg animate-fade-in shadow lg:shadow-lg'
           src={image.src}
           alt={image.alt}

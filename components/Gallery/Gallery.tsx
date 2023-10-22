@@ -2,11 +2,11 @@
 
 import { useState } from 'react'
 import dynamic from 'next/dynamic'
-import Image from 'next/image'
-import { Image as ImageType } from '@/types'
+import NextImage from 'next/image'
+import { Image } from '@/types'
 
 type Props = {
-  images: ImageType[]
+  images: Image[]
   current?: number
 
   className?: string
@@ -41,7 +41,7 @@ export const Gallery = (props: Props) => {
               onClick={() => handleClick(index)}
               key={image.src}
             >
-              <Image
+              <NextImage
                 className='object-contain bg-light-gray animate-fade-in'
                 src={image.src}
                 alt={image.alt}
