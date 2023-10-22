@@ -119,7 +119,7 @@ export default function HomePage() {
         </div>
 
         {/* Tooltip */}
-        <Tooltip className="hidden lg:block w-64">
+        {/* <Tooltip className="hidden lg:block w-64">
           <span className="block text-sm lg:text-md font-bold pr-6">
             This website was built with the following stack:
           </span>
@@ -135,7 +135,7 @@ export default function HomePage() {
               here
             </Link>
           </span>
-        </Tooltip>
+        </Tooltip> */}
       </Container>
     </main>
   )
