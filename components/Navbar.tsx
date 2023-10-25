@@ -11,8 +11,8 @@ export const links = [
     href: '/contact',
   },
   {
-    label: 'Projects',
-    href: '/projects',
+    label: 'Work',
+    href: '/work',
   },
   {
     label: 'Gallery',

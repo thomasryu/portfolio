@@ -2,21 +2,21 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { projects } from '@/data'
+import { articles, projects } from '@/data'
 
 import { Container } from '@/components/Container'
 import { Tag } from '@/components/Tag'
 
 export const metadata: Metadata = {
-  title: 'Thomas | Projects',
-  description: "Some of the projects I've worked on over the years as a frontend developer.",
+  title: 'Thomas | Work',
+  description: "Some of the projects I've worked on and articlesover the years as a frontend developer.",
 }
 
 export default function ProjectsPage() {
   return (
     <main className="pt-12 pb-32 lg:pt-20 lg:pb-40">
       <Container>
-        <h1 className="text-3xl lg:text-4xl font-bold">Projects</h1>
+        <h2 className="text-3xl lg:text-4xl font-bold">Projects</h2>
 
         <div className="mt-10 lg:mt-14 space-y-12 lg:space-y-16">
           {projects.map((project, index) => (
@@ -25,7 +25,7 @@ export default function ProjectsPage() {
               <span className="text-xs font-serif font-bold uppercase">{project.label}</span>
               <div className="flex flex-row items-end">
                 <Link href={project.href} target="_blank" rel="noopener noreferrer">
-                  <h1 className="text-4xl lg:text-5xl mt-1">{project.name}</h1>
+                  <h2 className="text-4xl lg:text-5xl mt-1">{project.name}</h2>
                 </Link>
                 <div className="text-xs lg:text-lg text-gray mb-1.5 ml-2 lg:mb-0.5 lg:ml-3">
                   (
@@ -93,6 +93,24 @@ export default function ProjectsPage() {
             </div>
           ))}
         </div>
+
+        <span className="block bg-gray w-2/5 h-[1px] mt-16 mb-14 lg:mt-24 lg:mb-20" aria-hidden="true"></span>
+
+        <h2 className="text-3xl lg:text-4xl font-bold">Articles</h2>
+        <ul className="p-0 mt-10 lg:mt-14 space-y-5 lg:space-y-6 list-none">
+          {articles.map((article) => (
+            <li key={article.href}>
+              <Link
+                className="flex items-start text-lg lg:text-xl font-semibold hover:underline"
+                href={article.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <article.icon className="shrink-0 w-6 h-6 mt-0.5 mr-3" /> {article.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </Container>
     </main>
   )

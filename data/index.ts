@@ -1,3 +1,3 @@
 export * from './gallery'
-export * from './projects'
+export * from './work'
 export * from './url'

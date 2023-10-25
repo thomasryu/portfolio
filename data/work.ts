@@ -1,4 +1,7 @@
-import { Project } from '@/types'
+import { Article, Project } from '@/types'
+import LinkedIn from '@/icons/linkedin.svg'
+import Medium from '@/icons/medium.svg'
+import Text from '@/icons/text.svg'
 
 export const projects: Project[] = [
   // {
@@ -14,12 +17,12 @@ export const projects: Project[] = [
   //   images: [
   //     {
   //       type: 'desktop',
-  //       src: '/images/projects/-desktop.png',
+  //       src: '/images/work/-desktop.png',
   //       alt: "",
   //     },
   //     {
   //       type: 'mobile',
-  //       src: '/images/projects/-mobile.png',
+  //       src: '/images/work/-mobile.png',
   //       alt: "",
   //     },
   //   ],
@@ -43,12 +46,12 @@ export const projects: Project[] = [
     images: [
       {
         type: 'desktop',
-        src: '/images/projects/cobli-desktop.png',
+        src: '/images/work/cobli-desktop.png',
         alt: "Desktop version of Cobli's website home page",
       },
       {
         type: 'mobile',
-        src: '/images/projects/cobli-mobile.png',
+        src: '/images/work/cobli-mobile.png',
         alt: "Mobile version of Cobli's website home page",
       },
     ],
@@ -83,7 +86,7 @@ export const projects: Project[] = [
 
   //   images: {
   //     type: 'desktop',
-  //     src: '/images/projects/the-sedan-crew-desktop.png',
+  //     src: '/images/work/the-sedan-crew-desktop.png',
   //     alt: 'A 3D model of a pink and blue sedan with 6 characters: 4 inside the car and 2 outside.',
   //   },
 
@@ -101,12 +104,35 @@ export const projects: Project[] = [
 
     images: {
       type: 'desktop',
-      src: '/images/projects/threejs-portal-desktop.png',
+      src: '/images/work/threejs-portal-desktop.png',
       alt: 'A 3D model of a pink stone portal with a pink hue. Around it an assortment of stones, cut tree logs, fences and lamp posts.',
     },
 
     description: `A Three.js (a 3D rendering library for JavaScript) and 3D modeling exercise, done for one of Bruno Simon's (@bruno_simon) Three.js Journey courses.`,
 
     tags: ['HTML', 'CSS', 'JavaScript', 'Three.js', 'Blender'],
+  },
+]
+
+export const articles: Article[] = [
+  // {
+  //   label: '',
+  //   href: '',
+  // },
+
+  {
+    icon: Text,
+    label: 'What is Growth Hacking?',
+    href: '/growth-hacking',
+  },
+  {
+    icon: LinkedIn,
+    label: "Migrating Cobli's Website from Gatsby to Next.js",
+    href: 'https://medium.com/@thomas.sameshima/migrating-coblis-website-from-gatsbyjs-to-nextjs-c9133b0257b4',
+  },
+  {
+    icon: Medium,
+    label: "A Glimpse at Cobli's Website and Blog's Ecosystem",
+    href: 'https://www.linkedin.com/posts/thomasryu_cobli-figma-activity-7023620769775509505-GC_7',
   },
 ]

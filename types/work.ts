@@ -20,3 +20,9 @@ type ProjectImage = {
   src: string
   alt: string
 }
+
+export type Article = {
+  icon: any
+  label: string
+  href: string
+}
