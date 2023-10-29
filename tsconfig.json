@@ -35,7 +35,9 @@
       "@/middlewares/*": ["middlewares/*"],
       "@/styles/*": ["styles/*"],
       "@/types": ["types"],
-      "@/types/*": ["types/*"]
+      "@/types/*": ["types/*"],
+      "@/utils": ["utils"],
+      "@/utils/*": ["utils/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
