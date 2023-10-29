@@ -34,7 +34,7 @@ export const projects: Project[] = [
   // },
 
   {
-    label: 'Website',
+    label: 'Work',
     name: 'Cobli',
     href: 'https://www.cobli.co',
 
@@ -74,6 +74,44 @@ export const projects: Project[] = [
       'Hotjar',
       'Google Analytics 4',
       'Google Optimize',
+    ],
+  },
+
+  {
+    label: 'Personal',
+    name: 'Portfolio',
+    href: '/',
+
+    date: '2022',
+
+    images: [
+      {
+        type: 'desktop',
+        src: '/images/work/portfolio-desktop.png',
+        alt: 'A screenshot of the desktop version of this very own portfolio',
+      },
+      {
+        type: 'mobile',
+        src: '/images/work/portfolio-mobile.png',
+        alt: 'A screenshot of the mobile version of this very own portfolio',
+      },
+    ],
+
+    description:
+      "At first glance, including this portfolio in its own projects section may seem like a stretch, a desperate move even. However, because it's not a simple static webpage, it is worth including it here. For example, some technologies used in it were:",
+    items: [
+      'Tailwind CSS: My first experience with the framework, it significantly acceleretad the coding process',
+      "Contentful Headless CMS: Used as a data source for the articles' contents, and the gallery page",
+    ],
+
+    tags: [
+      'HTML',
+      'CSS',
+      'TypeScript',
+      'React',
+      'Next.js',
+      'Vercel',
+      'Tailwind CSS',
     ],
   },
 

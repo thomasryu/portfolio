@@ -1,5 +1,5 @@
 export type Project = {
-  label: 'Website' | 'Personal'
+  label: 'Work' | 'Personal'
   name: string
   href: string
   date:
