@@ -19,18 +19,18 @@ type Props = {
   className?: string
 }
 
-const Lightbox = (props: Props) => {
+const Lightbox = ({ images, ...props }: Props) => {
   const [current, setCurrent] = useState(props.current ?? 0)
-  const image = props.images[current]
+  const image = images[current]
 
   const handleArrowClick = (next?: boolean) => {
-    const { length } = props.images
+    const { length } = images
     setCurrent((length + current + (next ? 1 : -1)) % length)
   }
 
   const handleArrowPress = useCallback(
     (e: KeyboardEvent) => {
-      const { length } = props.images
+      const { length } = images
       switch (e.key) {
         case 'ArrowLeft':
           setCurrent((length + current - 1) % length)
@@ -40,7 +40,7 @@ const Lightbox = (props: Props) => {
           break
       }
     },
-    [current],
+    [current, images],
   )
 
   useEffect(() => {

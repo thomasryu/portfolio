@@ -2,6 +2,18 @@
 const nextConfig = {
   reactStrictMode: true,
 
+  // Allowing Contentful remote images
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.ctfassets.net',
+        port: '',
+        pathname: `/${process.env.CONTENTFUL_SPACE_ID}/**`,
+      },
+    ],
+  },
+
   webpack(config) {
     // Grab the existing rule that handles SVG imports
     const svgLoaderRule = config.module.rules.find((rule) =>

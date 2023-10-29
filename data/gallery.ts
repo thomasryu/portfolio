@@ -1,5 +1,7 @@
 import { Image } from '@/types'
 
+// Since we moved to contentful, this gallery data
+// is not used anymore still kept as a backup
 export const gallery: Image[] = [
   // {
   //   src: '/images/gallery/',

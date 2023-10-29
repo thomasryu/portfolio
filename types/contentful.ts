@@ -21,3 +21,10 @@ export type ContentfulContent = {
     assets: ContentfulAssetLink
   }
 }
+
+export type ContentfulImage = {
+  url: string
+  description: string
+  width: number
+  height: number
+}
