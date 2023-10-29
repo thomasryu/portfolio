@@ -98,10 +98,10 @@ export const projects: Project[] = [
     ],
 
     description:
-      "At first glance, including this portfolio in its own projects section may seem like a stretch, a desperate move even. However, because it's not a simple static webpage, it is worth including it here. For example, some technologies used in it were:",
+      "At first glance, including this portfolio in its own projects section may seem like a stretch, a desperate move even. However, because it's not a simple static webpage, I felt it worth including it here. For example, some technologies used in it were:",
     items: [
-      'Tailwind CSS: My first experience with the framework, it significantly acceleretad the coding process',
-      "Contentful Headless CMS: Used as a data source for the articles' contents, and the gallery page",
+      'Tailwind CSS: My first experience with the framework, it significantly accelerated the coding process',
+      "Contentful Headless CMS: Used as a data source for the articles' contents, the gallery page",
     ],
 
     tags: [
