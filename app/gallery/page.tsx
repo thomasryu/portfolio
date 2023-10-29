@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default async function GalleryPage() {
   const { isEnabled } = draftMode()
-  const images = await getGallery('Gallery', isEnabled)
+  const images = await getGallery('Art Gallery', isEnabled)
 
   return (
     <main className="pt-12 pb-32 lg:pt-20 lg:pb-40">
