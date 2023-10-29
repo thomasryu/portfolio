@@ -31,7 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
 
     {
-      url: `${url.origin}/growth-hacking`,
+      url: `${url.origin}/articles/growth-hacking`,
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 0.7,

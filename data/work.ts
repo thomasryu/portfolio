@@ -123,7 +123,7 @@ export const articles: Article[] = [
   {
     icon: Text,
     label: 'What is Growth Hacking?',
-    href: '/growth-hacking',
+    href: '/articles/growth-hacking',
   },
   {
     icon: LinkedIn,
