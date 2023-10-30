@@ -40,7 +40,7 @@ export const work: Work[] = [
     title: 'Cobli',
     href: 'https://www.cobli.co',
 
-    date: '2018 - present',
+    date: { start: '2018', end: 'present' },
 
     images: [
       {
@@ -79,7 +79,7 @@ export const work: Work[] = [
     title: 'Portfolio',
     href: '/',
 
-    date: '2022',
+    date: { start: '2022', end: '2022' },
 
     images: [
       {
@@ -133,7 +133,7 @@ export const work: Work[] = [
     title: 'Three.js Portal',
     href: 'https://threejs-portal.netlify.app',
 
-    date: '2021',
+    date: { start: '2021', end: '2021' },
 
     images: [
       {

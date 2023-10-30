@@ -11,7 +11,7 @@ import { Tag } from '@/components/Tag'
 
 export const metadata: Metadata = {
   title: 'Thomas | Work',
-  description: "Some of the projects I've worked on and articlesover the years as a frontend developer.",
+  description: "Some of my recent work and articles I've written over the years as a frontend developer.",
 }
 
 export default async function WorkPage() {
@@ -21,7 +21,7 @@ export default async function WorkPage() {
   return (
     <main className="pt-12 pb-32 lg:pt-20 lg:pb-40">
       <Container>
-        <h2 className="text-3xl lg:text-4xl font-bold">Projects</h2>
+        <h2 className="text-3xl lg:text-4xl font-bold">Work</h2>
 
         <div className="mt-10 lg:mt-14 space-y-12 lg:space-y-16">
           {work.map((work, index) => (
