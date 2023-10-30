@@ -28,3 +28,18 @@ export type ContentfulImage = {
   width: number
   height: number
 }
+
+export type ContentfulWork = {
+  label: string
+  title: string
+  startDate: string
+  endDate: string
+
+  imagesCollection: { items: ContentfulImage[] }
+
+  description: string
+  items?: string[]
+  tags: string[]
+
+  href: string
+}

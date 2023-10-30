@@ -1,24 +1,19 @@
-export type Project = {
-  label: 'Work' | 'Personal'
-  name: string
-  href: string
-  date:
-    | string
-    | {
-        start: string
-        end: string
-      }
+import { Image } from '@/types'
 
-  images: ProjectImage | ProjectImage[]
+export type Work = {
+  label: string
+  title: string
+  href: string
+  date: {
+    start: string
+    end: string
+  }
+
+  images: Image[]
+
   description: string
   items?: string[]
   tags: string[]
-}
-
-type ProjectImage = {
-  type: 'mobile' | 'desktop'
-  src: string
-  alt: string
 }
 
 export type Article = {

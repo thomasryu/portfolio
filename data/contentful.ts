@@ -31,3 +31,25 @@ export const POST_GRAPHQL_GALLERY_FIELDS = `
     }
   }
 `
+
+export const POST_GRAPHQL_WORK_FIELDS = `
+  label
+  title
+  startDate
+  endDate
+
+  imagesCollection {
+    items {
+      url
+      description
+      width
+      height
+    }
+  }
+
+  description
+  items
+  tags
+
+  href
+`

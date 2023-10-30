@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
+import { draftMode } from 'next/headers'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { articles, projects } from '@/data'
+import { articles } from '@/data'
+import { getWork } from '@/utils'
 
 import { Container } from '@/components/Container'
 import { Tag } from '@/components/Tag'
@@ -12,30 +14,33 @@ export const metadata: Metadata = {
   description: "Some of the projects I've worked on and articlesover the years as a frontend developer.",
 }
 
-export default function ProjectsPage() {
+export default async function WorkPage() {
+  const { isEnabled } = draftMode()
+  const work = await getWork(isEnabled)
+
   return (
     <main className="pt-12 pb-32 lg:pt-20 lg:pb-40">
       <Container>
         <h2 className="text-3xl lg:text-4xl font-bold">Projects</h2>
 
         <div className="mt-10 lg:mt-14 space-y-12 lg:space-y-16">
-          {projects.map((project, index) => (
-            <div key={project.name}>
+          {work.map((work, index) => (
+            <div key={work.title}>
               {/* Label, Title, Date */}
-              <span className="text-xs font-serif font-bold uppercase">{project.label}</span>
+              <span className="text-xs font-serif font-bold uppercase">{work.label}</span>
               <div className="flex flex-row items-end">
-                <Link href={project.href} target="_blank" rel="noopener noreferrer">
-                  <h2 className="text-4xl lg:text-5xl mt-1">{project.name}</h2>
+                <Link href={work.href} target="_blank" rel="noopener noreferrer">
+                  <h2 className="text-4xl lg:text-5xl mt-1">{work.title}</h2>
                 </Link>
-                <div className="text-xs lg:text-lg text-gray mb-1.5 ml-2 lg:mb-0.5 lg:ml-3">
+                <div className="block text-xs lg:text-lg text-gray mb-1.5 ml-2 lg:mb-0.5 lg:ml-3">
                   (
-                  {typeof project.date === 'string' ? (
-                    <span>{project.date}</span>
+                  {work.date.start === work.date.end ? (
+                    <span>{work.date.start}</span>
                   ) : (
                     <>
-                      <span>{project.date.start}</span>
+                      <span>{work.date.start}</span>
                       {' - '}
-                      <span>{project.date.end}</span>
+                      <span>{work.date.end}</span>
                     </>
                   )}
                   )
@@ -44,12 +49,12 @@ export default function ProjectsPage() {
 
               {/* Images */}
               <div className="flex flex-row items-center space-x-2 lg:space-x-5 mt-8">
-                {[project.images].flat().map((image) => (
+                {[work.images].flat().map((image) => (
                   <Link
                     className={`block shrink min-w-0 ${
-                      image.type === 'mobile' ? 'w-mobile' : 'w-desktop'
+                      image.size?.width === 390 ? 'w-mobile' : 'w-desktop'
                     } rounded overflow-hidden shadow lg:shadow-lg lg:hover:shadow transition-shadow`}
-                    href={project.href}
+                    href={work.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     key={image.src}
@@ -58,8 +63,8 @@ export default function ProjectsPage() {
                       className="bg-light-gray animate-fade-in"
                       src={image.src}
                       alt={image.alt}
-                      width={image.type === 'mobile' ? 390 : 1366}
-                      height={840}
+                      width={image.size?.width}
+                      height={image.size?.height}
                       priority={index === 0}
                     />
                   </Link>
@@ -69,14 +74,14 @@ export default function ProjectsPage() {
               {/* Description */}
               <p
                 className={`text-lg lg:text-xl max-w-2xl mt-7 lg:mt-9 ${
-                  [project.images].flat().length > 1 ? 'lg:max-w-5xl' : 'lg:max-w-3xl'
+                  [work.images].flat().length > 1 ? 'lg:max-w-5xl' : 'lg:max-w-3xl'
                 }`}
               >
-                {project.description}
+                {work.description}
               </p>
-              {project.items && (
+              {work.items && (
                 <ul className="text-lg mt-5 lg:mt-6 space-y-2 lg:space-y-1">
-                  {project.items.map((item) => (
+                  {work.items.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
@@ -84,7 +89,7 @@ export default function ProjectsPage() {
 
               {/* Tags */}
               <div className="flex flex-row justify-start flex-wrap max-w-2xl -m-1 mt-6 lg:mt-7">
-                {project.tags.map((tag) => (
+                {work.tags.map((tag) => (
                   <Tag className="m-1" key={tag}>
                     {tag}
                   </Tag>

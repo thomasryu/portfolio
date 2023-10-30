@@ -1,9 +1,11 @@
-import { Article, Project } from '@/types'
+import { Article, Work } from '@/types'
 import LinkedIn from '@/icons/linkedin.svg'
 import Medium from '@/icons/medium.svg'
 import Text from '@/icons/text.svg'
 
-export const projects: Project[] = [
+// Since moving to contentful, this work data
+// is not used anymore. Still keeping it as a backup
+export const work: Work[] = [
   // {
   //   label: '',
   //   name: '',
@@ -35,22 +37,17 @@ export const projects: Project[] = [
 
   {
     label: 'Work',
-    name: 'Cobli',
+    title: 'Cobli',
     href: 'https://www.cobli.co',
 
-    date: {
-      start: '2018',
-      end: 'present',
-    },
+    date: '2018 - present',
 
     images: [
       {
-        type: 'desktop',
         src: '/images/work/cobli-desktop.png',
         alt: "Desktop version of Cobli's website home page",
       },
       {
-        type: 'mobile',
         src: '/images/work/cobli-mobile.png',
         alt: "Mobile version of Cobli's website home page",
       },
@@ -79,19 +76,17 @@ export const projects: Project[] = [
 
   {
     label: 'Personal',
-    name: 'Portfolio',
+    title: 'Portfolio',
     href: '/',
 
     date: '2022',
 
     images: [
       {
-        type: 'desktop',
         src: '/images/work/portfolio-desktop.png',
         alt: 'A screenshot of the desktop version of this very own portfolio',
       },
       {
-        type: 'mobile',
         src: '/images/work/portfolio-mobile.png',
         alt: 'A screenshot of the mobile version of this very own portfolio',
       },
@@ -100,7 +95,7 @@ export const projects: Project[] = [
     description:
       "At first glance, including this portfolio in its own projects section may seem like a stretch, even desperate. However, because it's not a simple static web page, I felt it was worth including it. For example, some technologies used in it were:",
     items: [
-      'Tailwind CSS: My first experience with the framework, it significantly accelerated the coding process',
+      'Tailwind CSS: My first experience with the framework, which significantly accelerated the coding process',
       "Contentful Headless CMS: Used as a data source for the articles' contents and gallery page",
     ],
 
@@ -117,7 +112,7 @@ export const projects: Project[] = [
 
   // {
   //   label: 'Personal',
-  //   name: 'The SeDAN Crew',
+  //   title: 'The SeDAN Crew',
   //   href: 'https://the-sedan-crew.netlify.app',
 
   //   date: '2021',
@@ -135,16 +130,17 @@ export const projects: Project[] = [
 
   {
     label: 'Personal',
-    name: 'Three.js Portal',
+    title: 'Three.js Portal',
     href: 'https://threejs-portal.netlify.app',
 
     date: '2021',
 
-    images: {
-      type: 'desktop',
-      src: '/images/work/threejs-portal-desktop.png',
-      alt: 'A 3D model of a pink stone portal with a pink hue. Around it an assortment of stones, cut tree logs, fences and lamp posts.',
-    },
+    images: [
+      {
+        src: '/images/work/threejs-portal-desktop.png',
+        alt: 'A 3D model of a pink stone portal with a pink hue. Around it an assortment of stones, cut tree logs, fences and lamp posts.',
+      },
+    ],
 
     description: `A Three.js (a 3D rendering library for JavaScript) and 3D modeling exercise, done for one of Bruno Simon's (@bruno_simon) Three.js Journey courses.`,
 
