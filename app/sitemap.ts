@@ -29,12 +29,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'daily',
       priority: 0.7,
     },
-
-    {
-      url: `${url.origin}/articles/growth-hacking`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.7,
-    },
   ]
 }

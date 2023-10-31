@@ -154,11 +154,11 @@ export const articles: Article[] = [
   //   href: '',
   // },
 
-  {
-    icon: Text,
-    label: 'What is Growth Hacking?',
-    href: '/articles/growth-hacking',
-  },
+  // {
+  //   icon: Text,
+  //   label: 'What is Growth Hacking?',
+  //   href: '/articles/growth-hacking',
+  // },
   {
     icon: LinkedIn,
     label: "Migrating Cobli's Website from Gatsby to Next.js",

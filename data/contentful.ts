@@ -15,6 +15,8 @@ export const POST_GRAPHQL_ARTICLE_FIELDS = `
           }
           url
           description
+          width
+          height
         }
       }
     }

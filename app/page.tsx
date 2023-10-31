@@ -28,7 +28,7 @@ const socials = [
 const skills = [
   {
     label: 'Languages / Frameworks',
-    tags: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Gatsby', 'WordPress'],
+    tags: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'WordPress'],
   },
   {
     label: 'Tools',
@@ -37,12 +37,13 @@ const skills = [
       'Figma',
       'Jira',
       'Vercel',
-      'Netlify',
+      'Segment',
       'Google Tag Manager',
       'Google Analytics 4',
       'HubSpot',
       'Hotjar',
       'Microsoft Clarity',
+      'Contentful CMS',
     ],
   },
   { label: 'Growth', tags: ['Technical SEO', 'A/B Testing'] },
@@ -73,10 +74,10 @@ export default function HomePage() {
           <mark className="inline-block bg-yellow rounded px-1.5 pt-1 lg:px-2 lg:pt-1.5 lg:pb-0.5">Thomas</mark>
         </h1>
         <p className="text-xl lg:text-2xl text-center mt-2 lg:mt-3 w-auto lg:w-1/2 max-w-xl lg:max-w-2xl ">
-          I&apos;m a frontend developer with over 6 years of experience, specializing in{' '}
-          <Link className="relative font-semibold hover:underline" href="/articles/growth-hacking">
+          I&apos;m a frontend developer with over 6 years of experience, specializing in performance and scalability
+          {/* <Link className="relative font-semibold hover:underline" href="/articles/growth-hacking">
             growth hacking <span className="absolute inline-block font-extrabold text-xs lg:text-sm">(?)</span>
-          </Link>
+          </Link> */}
         </p>
 
         <div className="relative z-0 text-md lg:text-lg mt-4 lg:mt-5 text-gray">

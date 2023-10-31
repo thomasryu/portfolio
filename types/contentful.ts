@@ -4,6 +4,8 @@ export type ContentfulAsset = {
   }
   url: string
   description: string
+  width: number
+  height: number
 }
 
 export type ContentfulRichTextAsset = {

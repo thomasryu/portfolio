@@ -6,7 +6,15 @@ import type { ContentfulContent, ContentfulRichTextAsset } from '@/types'
 const RichTextAsset = ({ id, assets }: ContentfulRichTextAsset) => {
   const asset = assets?.find((asset) => asset.sys.id === id)
   if (asset?.url) {
-    return <Image src={asset.url} layout='fill' alt={asset.description} />
+    return (
+      <Image
+        className='rounded mt-5 lg:mt-6 first:mt-0 mb-1 last:mb-0'
+        src={asset.url}
+        alt={asset.description}
+        width={asset.width}
+        height={asset.height}
+      />
+    )
   }
   return null
 }
