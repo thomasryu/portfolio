@@ -1,2 +1,2 @@
-export * from "./withCSP";
-export * from "./chainMiddlewares";
+export * from './withCSP'
+export * from './chainMiddlewares'

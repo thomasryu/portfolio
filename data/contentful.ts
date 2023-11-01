@@ -21,7 +21,7 @@ export const POST_GRAPHQL_ARTICLE_FIELDS = `
       }
     }
   }
-`;
+`
 
 export const POST_GRAPHQL_GALLERY_FIELDS = `
   imagesCollection {
@@ -32,7 +32,7 @@ export const POST_GRAPHQL_GALLERY_FIELDS = `
       height
     }
   }
-`;
+`
 
 export const POST_GRAPHQL_WORK_FIELDS = `
   label
@@ -54,4 +54,4 @@ export const POST_GRAPHQL_WORK_FIELDS = `
   tags
 
   href
-`;
+`

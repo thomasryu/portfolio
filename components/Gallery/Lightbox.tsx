@@ -1,59 +1,57 @@
-"use client";
+'use client'
 
-import { useCallback, useEffect, useState } from "react";
-import { Overlay } from "../Overlay";
+import NextImage from 'next/image'
+import { useCallback, useEffect, useState } from 'react'
 
-import Close from "@/icons/close.svg";
-import Caret from "@/icons/caret.svg";
+import { Overlay } from '../Overlay'
 
-import { Image } from "@/types";
-import NextImage from "next/image";
+import { Image } from '@/types'
+
+import Caret from '@/icons/caret.svg'
+import Close from '@/icons/close.svg'
 
 type Props = {
-  images: Image[];
-  current?: number;
+  images: Image[]
+  current?: number
 
-  open: boolean;
-  onClose: () => void;
+  open: boolean
+  onClose: () => void
 
-  className?: string;
-};
+  className?: string
+}
 
 const Lightbox = ({ images, ...props }: Props) => {
-  const [current, setCurrent] = useState(props.current ?? 0);
-  const image = images[current];
+  const [current, setCurrent] = useState(props.current ?? 0)
+  const image = images[current]
 
   const handleArrowClick = (next?: boolean) => {
-    const { length } = images;
-    setCurrent((length + current + (next ? 1 : -1)) % length);
-  };
+    const { length } = images
+    setCurrent((length + current + (next ? 1 : -1)) % length)
+  }
 
   const handleArrowPress = useCallback(
     (e: KeyboardEvent) => {
-      const { length } = images;
+      const { length } = images
       switch (e.key) {
-        case "ArrowLeft":
-          setCurrent((length + current - 1) % length);
-          break;
-        case "ArrowRight":
-          setCurrent((length + current + 1) % length);
-          break;
+        case 'ArrowLeft':
+          setCurrent((length + current - 1) % length)
+          break
+        case 'ArrowRight':
+          setCurrent((length + current + 1) % length)
+          break
       }
     },
     [current, images],
-  );
+  )
 
   useEffect(() => {
-    document.addEventListener("keydown", handleArrowPress);
-    return () => document.removeEventListener("keydown", handleArrowPress);
-  }, [handleArrowPress]);
+    document.addEventListener('keydown', handleArrowPress)
+    return () => document.removeEventListener('keydown', handleArrowPress)
+  }, [handleArrowPress])
 
   return (
     <Overlay className="text-gray" onClose={props.onClose} open>
-      <button
-        className="absolute top-1 right-1 shrink-0 p-2 z-10"
-        onClick={props.onClose}
-      >
+      <button className="absolute top-1 right-1 shrink-0 p-2 z-10" onClick={props.onClose}>
         <Close className="w-8 h-8 lg:w-12 lg:h-12" />
       </button>
 
@@ -84,7 +82,7 @@ const Lightbox = ({ images, ...props }: Props) => {
         />
       </div>
     </Overlay>
-  );
-};
+  )
+}
 
-export default Lightbox;
+export default Lightbox

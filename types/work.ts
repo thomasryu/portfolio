@@ -1,23 +1,23 @@
-import { Image } from "@/types";
+import { Image } from '@/types'
 
 export type Work = {
-  label: string;
-  title: string;
-  href: string;
+  label: string
+  title: string
+  href: string
   date: {
-    start: string;
-    end: string;
-  };
+    start: string
+    end: string
+  }
 
-  images: Image[];
+  images: Image[]
 
-  description: string;
-  items?: string[];
-  tags: string[];
-};
+  description: string
+  items?: string[]
+  tags: string[]
+}
 
 export type Article = {
-  icon: any;
-  label: string;
-  href: string;
-};
+  icon: any
+  label: string
+  href: string
+}

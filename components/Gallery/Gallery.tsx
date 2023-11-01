@@ -1,31 +1,32 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import dynamic from "next/dynamic";
-import NextImage from "next/image";
-import { Image } from "@/types";
+import dynamic from 'next/dynamic'
+import NextImage from 'next/image'
+import { useState } from 'react'
+
+import { Image } from '@/types'
 
 type Props = {
-  images: Image[];
-  current?: number;
+  images: Image[]
+  current?: number
 
-  className?: string;
-};
+  className?: string
+}
 
-const Lightbox = dynamic(() => import("./Lightbox"));
+const Lightbox = dynamic(() => import('./Lightbox'))
 
 export const Gallery = (props: Props) => {
-  const [current, setCurrent] = useState(props.current || 0);
-  const [open, setOpen] = useState(false);
+  const [current, setCurrent] = useState(props.current || 0)
+  const [open, setOpen] = useState(false)
 
   const handleClick = (index: number) => {
-    setCurrent(index);
-    setOpen(true);
-  };
+    setCurrent(index)
+    setOpen(true)
+  }
 
   const handleClose = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
 
   return (
     <>
@@ -54,14 +55,7 @@ export const Gallery = (props: Props) => {
       </div>
 
       {/* Lightbox */}
-      {open && (
-        <Lightbox
-          images={props.images}
-          current={current}
-          onClose={handleClose}
-          open
-        />
-      )}
+      {open && <Lightbox images={props.images} current={current} onClose={handleClose} open />}
     </>
-  );
-};
+  )
+}

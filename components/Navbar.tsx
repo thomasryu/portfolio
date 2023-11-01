@@ -1,33 +1,32 @@
-import Link from "next/link";
-import { Container } from "@/components/Container";
+import Link from 'next/link'
 
-import House from "@/icons/house.svg";
+import { Container } from '@/components/Container'
 
-type Props = {};
+import House from '@/icons/house.svg'
+
+type Props = {}
 
 export const links = [
   {
-    label: "Contact",
-    href: "/contact",
+    label: 'Contact',
+    href: '/contact',
   },
   {
-    label: "Work",
-    href: "/work",
+    label: 'Work',
+    href: '/work',
   },
   {
-    label: "Gallery",
-    href: "/gallery",
+    label: 'Gallery',
+    href: '/gallery',
   },
-];
+]
 
 export const Navbar = (props: Props) => (
   <nav className="text-black">
     <Container className="h-16 flex items-center">
       <Link className="flex items-center p-1" href="/" aria-label="Home">
         <House className="w-7 h-7 lg:mb-1" />
-        <span className="text-md lg:text-lg hidden md:block font-serif font-bold ml-3">
-          Home
-        </span>
+        <span className="text-md lg:text-lg hidden md:block font-serif font-bold ml-3">Home</span>
       </Link>
 
       <div className="space-x-2 ml-auto">
@@ -43,4 +42,4 @@ export const Navbar = (props: Props) => (
       </div>
     </Container>
   </nav>
-);
+)
