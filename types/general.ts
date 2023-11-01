@@ -1,8 +1,8 @@
 export type Image = {
-  src: string
-  alt: string
+  src: string;
+  alt: string;
   size?: {
-    width: number
-    height: number
-  }
-}
+    width: number;
+    height: number;
+  };
+};

@@ -1,7 +1,7 @@
 type Props = {
-  children: React.ReactNode
-  className?: string
-}
+  children: React.ReactNode;
+  className?: string;
+};
 
 export const Tag = (props: Props) => (
   <span
@@ -9,4 +9,4 @@ export const Tag = (props: Props) => (
   >
     {props.children}
   </span>
-)
+);

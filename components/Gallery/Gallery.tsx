@@ -1,40 +1,40 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import dynamic from 'next/dynamic'
-import NextImage from 'next/image'
-import { Image } from '@/types'
+import { useState } from "react";
+import dynamic from "next/dynamic";
+import NextImage from "next/image";
+import { Image } from "@/types";
 
 type Props = {
-  images: Image[]
-  current?: number
+  images: Image[];
+  current?: number;
 
-  className?: string
-}
+  className?: string;
+};
 
-const Lightbox = dynamic(() => import('./Lightbox'))
+const Lightbox = dynamic(() => import("./Lightbox"));
 
 export const Gallery = (props: Props) => {
-  const [current, setCurrent] = useState(props.current || 0)
-  const [open, setOpen] = useState(false)
+  const [current, setCurrent] = useState(props.current || 0);
+  const [open, setOpen] = useState(false);
 
   const handleClick = (index: number) => {
-    setCurrent(index)
-    setOpen(true)
-  }
+    setCurrent(index);
+    setOpen(true);
+  };
 
   const handleClose = () => {
-    setOpen(false)
-  }
+    setOpen(false);
+  };
 
   return (
     <>
       {/* Gallery */}
       <div className={`flex flex-wrap ${props.className}`}>
-        <div className='-m-2 flex flex-wrap'>
+        <div className="-m-2 flex flex-wrap">
           {props.images.map((image, index) => (
             <div
-              className='shrink max-h-44 lg:max-h-64 m-2 rounded overflow-hidden cursor-pointer shadow lg:shadow-lg lg:hover:shadow transition-shadow'
+              className="shrink max-h-44 lg:max-h-64 m-2 rounded overflow-hidden cursor-pointer shadow lg:shadow-lg lg:hover:shadow transition-shadow"
               style={{
                 aspectRatio: `${image.size?.width}/${image.size?.height}`,
               }}
@@ -42,7 +42,7 @@ export const Gallery = (props: Props) => {
               key={image.src}
             >
               <NextImage
-                className='object-contain bg-light-gray animate-fade-in'
+                className="object-contain bg-light-gray animate-fade-in"
                 src={image.src}
                 alt={image.alt}
                 width={image.size?.width}
@@ -63,5 +63,5 @@ export const Gallery = (props: Props) => {
         />
       )}
     </>
-  )
-}
+  );
+};

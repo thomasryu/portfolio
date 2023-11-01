@@ -1,22 +1,22 @@
-import { MiddlewareFactory } from '@/types'
+import { MiddlewareFactory } from "@/types";
 import {
   NextFetchEvent,
   NextMiddleware,
   NextRequest,
   NextResponse,
-} from 'next/server'
+} from "next/server";
 
 // Adds Content Security Protocol headers to our requests
 export const withCSP: MiddlewareFactory = (middleware: NextMiddleware) => {
   return async (request: NextRequest, event: NextFetchEvent) => {
     if (!matcher(request)) {
-      return middleware(request, event)
+      return middleware(request, event);
     }
 
-    const result = await middleware(request, event)
+    const result = await middleware(request, event);
 
     if (result) {
-      const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
+      const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
       const cspHeader = `
         default-src 'self';
         script-src 'self' 'nonce-${nonce}' 'strict-dynamic';
@@ -29,26 +29,26 @@ export const withCSP: MiddlewareFactory = (middleware: NextMiddleware) => {
         frame-ancestors 'none';
         block-all-mixed-content;
         upgrade-insecure-requests;
-    `
+    `;
 
-      const requestHeaders = new Headers(result.headers) // We use result's headers as base
-      requestHeaders.set('x-nonce', nonce)
+      const requestHeaders = new Headers(result.headers); // We use result's headers as base
+      requestHeaders.set("x-nonce", nonce);
       requestHeaders.set(
-        'Content-Security-Policy',
-        cspHeader.replace(/\s{2,}/g, ' ').trim(), // Replace newline characters and spaces
-      )
+        "Content-Security-Policy",
+        cspHeader.replace(/\s{2,}/g, " ").trim(), // Replace newline characters and spaces
+      );
 
       return NextResponse.next({
         headers: requestHeaders,
         request: {
           headers: requestHeaders,
         },
-      })
+      });
     }
 
-    return NextResponse.next()
-  }
-}
+    return NextResponse.next();
+  };
+};
 
 const matcher = (request: NextRequest) => {
   /*
@@ -58,12 +58,12 @@ const matcher = (request: NextRequest) => {
     - _next/image (image optimization files)
     - favicon.ico (favicon file)
   */
-  const regex = /\/(api|_next\/static|_next\/image|favicon\.ico).*/g
-  const sourceMatch = !request.nextUrl.pathname.match(regex)
+  const regex = /\/(api|_next\/static|_next\/image|favicon\.ico).*/g;
+  const sourceMatch = !request.nextUrl.pathname.match(regex);
 
-  const routerPrefetch = request.headers.has('next-router-prefetch')
-  const purposePrefetch = request.headers.get('purpose') === 'prefetch'
-  const headersMatch = routerPrefetch || purposePrefetch
+  const routerPrefetch = request.headers.has("next-router-prefetch");
+  const purposePrefetch = request.headers.get("purpose") === "prefetch";
+  const headersMatch = routerPrefetch || purposePrefetch;
 
-  return sourceMatch && !headersMatch
-}
+  return sourceMatch && !headersMatch;
+};

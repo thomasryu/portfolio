@@ -1,47 +1,47 @@
 export type ContentfulAsset = {
   sys: {
-    id: string
-  }
-  url: string
-  description: string
-  width: number
-  height: number
-}
+    id: string;
+  };
+  url: string;
+  description: string;
+  width: number;
+  height: number;
+};
 
 export type ContentfulRichTextAsset = {
-  id: string
-  assets?: ContentfulAsset[]
-}
+  id: string;
+  assets?: ContentfulAsset[];
+};
 
 export type ContentfulAssetLink = {
-  block: ContentfulAsset[]
-}
+  block: ContentfulAsset[];
+};
 
 export type ContentfulContent = {
-  json: any
+  json: any;
   links: {
-    assets: ContentfulAssetLink
-  }
-}
+    assets: ContentfulAssetLink;
+  };
+};
 
 export type ContentfulImage = {
-  url: string
-  description: string
-  width: number
-  height: number
-}
+  url: string;
+  description: string;
+  width: number;
+  height: number;
+};
 
 export type ContentfulWork = {
-  label: string
-  title: string
-  startDate: string
-  endDate: string
+  label: string;
+  title: string;
+  startDate: string;
+  endDate: string;
 
-  imagesCollection: { items: ContentfulImage[] }
+  imagesCollection: { items: ContentfulImage[] };
 
-  description: string
-  items?: string[]
-  tags: string[]
+  description: string;
+  items?: string[];
+  tags: string[];
 
-  href: string
-}
+  href: string;
+};

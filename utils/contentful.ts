@@ -2,8 +2,8 @@ import {
   POST_GRAPHQL_ARTICLE_FIELDS,
   POST_GRAPHQL_GALLERY_FIELDS,
   POST_GRAPHQL_WORK_FIELDS,
-} from '@/data'
-import { ContentfulImage, ContentfulWork, Image, Work } from '@/types'
+} from "@/data";
+import { ContentfulImage, ContentfulWork, Image, Work } from "@/types";
 
 export const fetchGraphQL = async (
   query: string,
@@ -12,9 +12,9 @@ export const fetchGraphQL = async (
   return fetch(
     `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
     {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${
           preview
             ? process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
@@ -23,16 +23,16 @@ export const fetchGraphQL = async (
       },
       body: JSON.stringify({ query }),
     },
-  ).then((response) => response.json())
-}
+  ).then((response) => response.json());
+};
 
 const extractArticle = (fetchResponse: any): any => {
-  return fetchResponse?.data?.articleCollection?.items?.[0]
-}
+  return fetchResponse?.data?.articleCollection?.items?.[0];
+};
 
 const extractGallery = (fetchResponse: any): Image[] => {
   const images: ContentfulImage[] =
-    fetchResponse?.data?.galleryCollection?.items?.[0]?.imagesCollection.items
+    fetchResponse?.data?.galleryCollection?.items?.[0]?.imagesCollection.items;
 
   return images.map((image) => ({
     src: image.url,
@@ -41,11 +41,11 @@ const extractGallery = (fetchResponse: any): Image[] => {
       width: image.width,
       height: image.height,
     },
-  }))
-}
+  }));
+};
 
 const extractWork = (fetchResponse: any): Work[] => {
-  const work: ContentfulWork[] = fetchResponse?.data?.workCollection?.items
+  const work: ContentfulWork[] = fetchResponse?.data?.workCollection?.items;
   return work.map((work) => {
     const images = work.imagesCollection?.items?.map((image) => ({
       src: image.url,
@@ -54,10 +54,10 @@ const extractWork = (fetchResponse: any): Work[] => {
         width: image.width,
         height: image.height,
       },
-    }))
+    }));
 
     const { label, title, href, startDate, endDate, description, items, tags } =
-      work
+      work;
 
     return {
       label,
@@ -71,9 +71,9 @@ const extractWork = (fetchResponse: any): Work[] => {
       description,
       items,
       tags,
-    }
-  })
-}
+    };
+  });
+};
 
 export const getArticle = async (
   slug: string,
@@ -82,7 +82,7 @@ export const getArticle = async (
   const entry = await fetchGraphQL(
     `query {
         articleCollection(where: { slug: "${slug}" }, preview: ${
-          preview ? 'true' : 'false'
+          preview ? "true" : "false"
         }, limit: 1) {
           items {
             ${POST_GRAPHQL_ARTICLE_FIELDS}
@@ -90,10 +90,10 @@ export const getArticle = async (
         }
       }`,
     preview,
-  )
+  );
 
-  return extractArticle(entry)
-}
+  return extractArticle(entry);
+};
 
 export const getGallery = async (
   title: string,
@@ -102,7 +102,7 @@ export const getGallery = async (
   const entry = await fetchGraphQL(
     `query {
         galleryCollection(where: { title: "${title}" }, preview: ${
-          preview ? 'true' : 'false'
+          preview ? "true" : "false"
         }, limit: 1) {
           items {
             ${POST_GRAPHQL_GALLERY_FIELDS}
@@ -110,16 +110,16 @@ export const getGallery = async (
         }
       }`,
     preview,
-  )
+  );
 
-  return extractGallery(entry)
-}
+  return extractGallery(entry);
+};
 
 export const getWork = async (preview: boolean): Promise<Work[]> => {
   const entry = await fetchGraphQL(
     `query {
         workCollection(order: [endDate_DESC], preview: ${
-          preview ? 'true' : 'false'
+          preview ? "true" : "false"
         }) {
           items {
             ${POST_GRAPHQL_WORK_FIELDS}
@@ -127,7 +127,7 @@ export const getWork = async (preview: boolean): Promise<Work[]> => {
         }
       }`,
     preview,
-  )
+  );
 
-  return extractWork(entry)
-}
+  return extractWork(entry);
+};

@@ -1,3 +1,3 @@
 export const contact = {
-  email: 'mail@thomasryu.com',
-}
+  email: "mail@thomasryu.com",
+};
