@@ -160,12 +160,12 @@ export const articles: Article[] = [
   //   href: '/articles/growth-hacking',
   // },
   {
-    icon: LinkedIn,
+    icon: Medium,
     label: "Migrating Cobli's Website from Gatsby to Next.js",
     href: 'https://medium.com/@thomas.sameshima/migrating-coblis-website-from-gatsbyjs-to-nextjs-c9133b0257b4',
   },
   {
-    icon: Medium,
+    icon: LinkedIn,
     label: "A Glimpse at Cobli's Website and Blog's Ecosystem",
     href: 'https://www.linkedin.com/posts/thomasryu_cobli-figma-activity-7023620769775509505-GC_7',
   },
