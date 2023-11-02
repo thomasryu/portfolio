@@ -1,16 +1,16 @@
 'use client'
 
 import { useFrame } from '@react-three/fiber'
-import type { BoxGeometryProps, GroupProps } from '@react-three/fiber'
 import { useRef } from 'react'
+import { Group, Mesh } from 'three'
 
 type Props = {
   className?: string
 }
 
 export const Geometry = (props: Props) => {
-  const groupRef = useRef<GroupProps>(null)
-  const meshRef = useRef<BoxGeometryProps>(null)
+  const groupRef = useRef<Group>(null)
+  const meshRef = useRef<Mesh>(null)
 
   useFrame((state, delta) => {
     if (meshRef.current) {
