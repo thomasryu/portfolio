@@ -8,16 +8,16 @@ type Props = {
   className?: string
 }
 
-export const Landscape = (props: Props) => {
+export const Geometry = (props: Props) => {
   const groupRef = useRef<GroupProps>(null)
   const meshRef = useRef<BoxGeometryProps>(null)
 
   useFrame((state, delta) => {
     if (meshRef.current) {
       meshRef.current.rotation.y += delta
+      meshRef.current.rotation.z -= delta
     }
     if (groupRef.current) {
-      groupRef.current.rotation.z -= delta
     }
   })
 
@@ -28,7 +28,6 @@ export const Landscape = (props: Props) => {
 
       <group ref={groupRef}>
         <mesh ref={meshRef} scale={2}>
-          {/* <icosahedronGeometry /> */}
           <dodecahedronGeometry />
           <meshStandardMaterial color="rgb(250, 204, 21)" />
         </mesh>

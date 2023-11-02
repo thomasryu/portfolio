@@ -3,9 +3,9 @@
 import NextImage from 'next/image'
 import { useCallback, useEffect, useState } from 'react'
 
-import { Overlay } from '../Overlay'
-
 import { Image } from '@/types'
+
+import { Overlay } from '@/components/Overlay'
 
 import Caret from '@/icons/caret.svg'
 import Close from '@/icons/close.svg'
