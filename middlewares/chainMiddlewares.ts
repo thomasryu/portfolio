@@ -1,4 +1,5 @@
 import { NextMiddleware, NextResponse } from 'next/server'
+
 import { MiddlewareFactory } from '@/types'
 
 // Utility function that nests our middleware HOCs

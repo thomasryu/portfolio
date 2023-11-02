@@ -1,8 +1,8 @@
 'use client'
 
+import { ScrollingContext } from '@/contexts'
 import { useEffect, useState } from 'react'
 
-import { ScrollingContext } from '@/contexts'
 import type { ScrollingValue } from '@/types'
 
 type Props = {
@@ -24,9 +24,5 @@ export const ScrollingProvider: React.FC<Props> = (props) => {
     setDisabled,
   }
 
-  return (
-    <ScrollingContext.Provider value={contextValue}>
-      {props.children}
-    </ScrollingContext.Provider>
-  )
+  return <ScrollingContext.Provider value={contextValue}>{props.children}</ScrollingContext.Provider>
 }

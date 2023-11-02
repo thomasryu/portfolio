@@ -1,8 +1,9 @@
 'use client'
 
-import { useState } from 'react'
 import dynamic from 'next/dynamic'
 import NextImage from 'next/image'
+import { useState } from 'react'
+
 import { Image } from '@/types'
 
 type Props = {
@@ -31,10 +32,10 @@ export const Gallery = (props: Props) => {
     <>
       {/* Gallery */}
       <div className={`flex flex-wrap ${props.className}`}>
-        <div className='-m-2 flex flex-wrap'>
+        <div className="-m-2 flex flex-wrap">
           {props.images.map((image, index) => (
             <div
-              className='shrink max-h-44 lg:max-h-64 m-2 rounded overflow-hidden cursor-pointer shadow lg:shadow-lg lg:hover:shadow transition-shadow'
+              className="shrink max-h-44 lg:max-h-64 m-2 rounded overflow-hidden cursor-pointer shadow lg:shadow-lg lg:hover:shadow transition-shadow"
               style={{
                 aspectRatio: `${image.size?.width}/${image.size?.height}`,
               }}
@@ -42,7 +43,7 @@ export const Gallery = (props: Props) => {
               key={image.src}
             >
               <NextImage
-                className='object-contain bg-light-gray animate-fade-in'
+                className="object-contain bg-light-gray animate-fade-in"
                 src={image.src}
                 alt={image.alt}
                 width={image.size?.width}
@@ -54,14 +55,7 @@ export const Gallery = (props: Props) => {
       </div>
 
       {/* Lightbox */}
-      {open && (
-        <Lightbox
-          images={props.images}
-          current={current}
-          onClose={handleClose}
-          open
-        />
-      )}
+      {open && <Lightbox images={props.images} current={current} onClose={handleClose} open />}
     </>
   )
 }

@@ -1,13 +1,14 @@
 'use client'
 
+import NextImage from 'next/image'
 import { useCallback, useEffect, useState } from 'react'
-import { Overlay } from '../Overlay'
-
-import Close from '@/icons/close.svg'
-import Caret from '@/icons/caret.svg'
 
 import { Image } from '@/types'
-import NextImage from 'next/image'
+
+import { Overlay } from '@/components/Overlay'
+
+import Caret from '@/icons/caret.svg'
+import Close from '@/icons/close.svg'
 
 type Props = {
   images: Image[]
@@ -49,35 +50,32 @@ const Lightbox = ({ images, ...props }: Props) => {
   }, [handleArrowPress])
 
   return (
-    <Overlay className='text-gray' onClose={props.onClose} open>
-      <button
-        className='absolute top-1 right-1 shrink-0 p-2 z-10'
-        onClick={props.onClose}
-      >
-        <Close className='w-8 h-8 lg:w-12 lg:h-12' />
+    <Overlay className="text-gray" onClose={props.onClose} open>
+      <button className="absolute top-1 right-1 shrink-0 p-2 z-10" onClick={props.onClose}>
+        <Close className="w-8 h-8 lg:w-12 lg:h-12" />
       </button>
 
       <button
-        className='shrink-0 absolute top-1/2 left-1 -translate-y-1/2 p-2 lg:p-4 z-10'
+        className="shrink-0 absolute top-1/2 left-1 -translate-y-1/2 p-2 lg:p-4 z-10"
         onClick={() => handleArrowClick()}
       >
-        <Caret className='w-6 h-6 lg:w-8 lg:h-8 rotate-180' />
+        <Caret className="w-6 h-6 lg:w-8 lg:h-8 rotate-180" />
       </button>
       <button
-        className='shrink-0 absolute top-1/2 right-1 -translate-y-1/2 p-2 lg:p-4 z-10'
+        className="shrink-0 absolute top-1/2 right-1 -translate-y-1/2 p-2 lg:p-4 z-10"
         onClick={() => handleArrowClick(true)}
       >
-        <Caret className='w-6 h-6 lg:w-8 lg:h-8' />
+        <Caret className="w-6 h-6 lg:w-8 lg:h-8" />
       </button>
 
       <div
-        className='relative h-screen max-w-[calc(100vw-1rem)] max-h-[calc(100vh-1rem)] lg:max-w-[calc(100vw-3rem)] lg:max-h-[calc(100vh-3rem)]'
+        className="relative h-screen max-w-[calc(100vw-1rem)] max-h-[calc(100vh-1rem)] lg:max-w-[calc(100vw-3rem)] lg:max-h-[calc(100vh-3rem)]"
         style={{
           aspectRatio: `${image.size?.width}/${image.size?.height}`,
         }}
       >
         <NextImage
-          className='object-contain rounded lg:rounded-lg animate-fade-in shadow lg:shadow-lg'
+          className="object-contain rounded lg:rounded-lg animate-fade-in shadow lg:shadow-lg"
           src={image.src}
           alt={image.alt}
           fill

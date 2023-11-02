@@ -81,11 +81,15 @@ export default function HomePage() {
         </p>
 
         <div className="relative z-0 text-md lg:text-lg mt-4 lg:mt-5 text-gray">
-          <span className="bg-white flex items-center border-x-8 border-white">
+          <span className="flex items-center">
             <Location className="w-4 h-4 lg:w-5 lg:h-5 mr-2" /> São Paulo, Brazil
           </span>
           <div
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 w-48 lg:w-52 h-[1px] bg-gray"
+            className="absolute top-1/2 right-full transform -translate-y-1/2 -z-10 w-3 h-[1px] mr-1 lg:mr-2 bg-gray"
+            aria-hidden="true"
+          />
+          <div
+            className="absolute top-1/2 left-full transform -translate-y-1/2 -z-10 w-3 h-[1px] ml-1 lg:ml-2 bg-gray"
             aria-hidden="true"
           />
         </div>

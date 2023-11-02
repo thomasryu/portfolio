@@ -1,4 +1,5 @@
 import { createContext, useContext } from 'react'
+
 import type { ScrollingValue } from '@/types'
 
 export const ScrollingContext = createContext<ScrollingValue>({

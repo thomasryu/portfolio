@@ -1,4 +1,5 @@
 import { chainMiddlewares, withCSP } from '@/middlewares'
+
 import { MiddlewareFactory } from './types'
 
 // withCSP currently disabled due to a bug preventing "nonce"

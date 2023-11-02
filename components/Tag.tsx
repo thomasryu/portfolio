@@ -4,9 +4,5 @@ type Props = {
 }
 
 export const Tag = (props: Props) => (
-  <span
-    className={`grow-0 text-white bg-black px-2 py-1 rounded ${props.className}`}
-  >
-    {props.children}
-  </span>
+  <span className={`grow-0 text-white bg-black px-2 py-1 rounded ${props.className}`}>{props.children}</span>
 )

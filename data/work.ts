@@ -1,4 +1,5 @@
 import { Article, Work } from '@/types'
+
 import LinkedIn from '@/icons/linkedin.svg'
 import Medium from '@/icons/medium.svg'
 import Text from '@/icons/text.svg'
@@ -99,15 +100,7 @@ export const work: Work[] = [
       "Contentful Headless CMS: Used as a data source for the articles' contents and gallery page",
     ],
 
-    tags: [
-      'HTML',
-      'CSS',
-      'TypeScript',
-      'React',
-      'Next.js',
-      'Vercel',
-      'Tailwind CSS',
-    ],
+    tags: ['HTML', 'CSS', 'TypeScript', 'React', 'Next.js', 'Vercel', 'Tailwind CSS'],
   },
 
   // {

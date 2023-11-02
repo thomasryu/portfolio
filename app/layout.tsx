@@ -3,6 +3,7 @@ import { Nunito, Nunito_Sans } from 'next/font/google'
 
 import './globals.css'
 
+import { Background } from '@/components/Background'
 import { Navbar } from '@/components/Navbar'
 
 // Adding font variables to be used in tailwind.config.ts
@@ -15,6 +16,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="overflow-x-hidden">
         <Navbar />
         {children}
+
+        <Background />
         <Analytics />
       </body>
     </html>
