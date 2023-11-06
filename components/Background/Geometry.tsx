@@ -1,5 +1,6 @@
 'use client'
 
+import { Float } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useRef } from 'react'
 import { Group, Mesh } from 'three'
@@ -27,10 +28,12 @@ export const Geometry = (props: Props) => {
       <ambientLight intensity={1} />
 
       <group ref={groupRef}>
-        <mesh ref={meshRef} scale={2}>
-          <dodecahedronGeometry />
-          <meshStandardMaterial color="rgb(250, 204, 21)" />
-        </mesh>
+        <Float floatIntensity={5} speed={10}>
+          <mesh ref={meshRef} scale={2}>
+            <dodecahedronGeometry />
+            <meshStandardMaterial color="rgb(250, 204, 21)" />
+          </mesh>
+        </Float>
       </group>
     </>
   )
