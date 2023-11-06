@@ -2,13 +2,15 @@ import { Float, Html, PresentationControls, useGLTF } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
 import { useRef } from 'react'
 import { Mesh } from 'three'
-import { GLTF } from 'three/examples/jsm/Addons.js'
+import type { GLTF } from 'three/examples/jsm/Addons.js'
 
 type GLTFResult = GLTF & {
   nodes: {
-    Cube: THREE.Mesh
+    [key: string]: THREE.Mesh
   }
-  materials: {}
+  materials: {
+    [key: string]: THREE.Material
+  }
 }
 
 export const Experience = () => {
