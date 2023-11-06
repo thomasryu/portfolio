@@ -1,7 +1,15 @@
 import { Float, Html, PresentationControls, useGLTF } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
-import { RefObject, useRef } from 'react'
-import { BufferGeometry, Mesh } from 'three'
+import { useRef } from 'react'
+import { Mesh } from 'three'
+import { GLTF } from 'three/examples/jsm/Addons.js'
+
+type GLTFResult = GLTF & {
+  nodes: {
+    Cube: THREE.Mesh
+  }
+  materials: {}
+}
 
 export const Experience = () => {
   const { camera, gl } = useThree()
@@ -20,8 +28,8 @@ export const Experience = () => {
     // groupRef.current.rotation.y += delta
   })
 
-  const background = useGLTF('/models/background.glb')
-  const { nodes, materials } = useGLTF('/models/phone.glb')
+  const background = useGLTF('/models/background.glb') as GLTFResult
+  const { nodes, materials } = useGLTF('/models/phone.glb') as GLTFResult
 
   return (
     <>
