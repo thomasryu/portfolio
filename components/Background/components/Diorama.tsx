@@ -1,14 +1,12 @@
-import { Environment, Float, Html, PresentationControls, useGLTF } from '@react-three/drei'
+import { Float, Html, PresentationControls, useGLTF } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
-import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useRef } from 'react'
 import { Mesh } from 'three'
 import type { GLTF } from 'three/examples/jsm/Addons.js'
 
-type ButtonProps = {
-  href: string
-  className?: string
-}
+import { Button } from './Button'
+import { Lighting } from './Lighting'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -19,35 +17,11 @@ type GLTFResult = GLTF & {
   }
 }
 
-const Lights = () => (
-  <>
-    <directionalLight position={[3, 8, -3]} intensity={4} castShadow shadow-normalBias={0.04} shadow-mapSize={1024}>
-      <orthographicCamera attach="shadow-camera" args={[-10, 10, -10, 10, 0.1, 50]} />
-    </directionalLight>
-    <directionalLight position={[3, 2, 2]} intensity={2} castShadow shadow-normalBias={0.04} shadow-mapSize={1024}>
-      <orthographicCamera attach="shadow-camera" args={[-10, 10, -10, 10, 0.1, 50]} />
-    </directionalLight>
-    <ambientLight intensity={1} />
-  </>
-)
-
-const Button = (props: ButtonProps) => (
-  <Link
-    className={`group flex justify-center items-center w-10 h-10 rounded-full border-2 border-white ${props.className}`}
-    href={props.href}
-  >
-    <div
-      className="w-5 h-5 group-hover:scale-125 transition-transform duration-500 rounded-full bg-white"
-      aria-hidden="true"
-    />
-  </Link>
-)
-
 export const Diorama = () => {
-  const { camera, gl } = useThree()
+  // const { camera, gl } = useThree()
 
-  const cubeRef = useRef<Mesh>(null)
-  const groupRef = useRef<Mesh>(null)
+  // const cubeRef = useRef<Mesh>(null)
+  // const groupRef = useRef<Mesh>(null)
 
   // useFrame((state, delta) => {
   //   const angle = state.clock.elapsedTime
@@ -60,12 +34,12 @@ export const Diorama = () => {
   //   // groupRef.current.rotation.y += delta
   // })
 
-  const { nodes, materials } = useGLTF('/models/model.glb') as GLTFResult
+  const router = useRouter()
+  const { nodes } = useGLTF('/models/model.glb') as GLTFResult
 
   return (
     <>
-      <Lights />
-      <Environment preset="dawn" />
+      <Lighting />
 
       <PresentationControls
         global
@@ -73,6 +47,7 @@ export const Diorama = () => {
         azimuth={[-0.2, 0.2]}
         config={{ mass: 2, tension: 400 }}
         snap={{ mass: 2, tension: 400 }}
+        cursor={false}
       >
         <group scale={2} position-y={-2.6}>
           <mesh
@@ -86,7 +61,7 @@ export const Diorama = () => {
             <meshStandardMaterial color="orange" roughness={0.25} metalness={0.5} />
           </mesh>
           <Html position={[-0.1, 0.6, 0.45]} center>
-            <Button href="/work" />
+            <Button router={router} href="/work" />
           </Html>
 
           <mesh
@@ -100,7 +75,7 @@ export const Diorama = () => {
             <meshStandardMaterial color="orange" roughness={0.25} metalness={0.5} />
           </mesh>
           <Html position={[0.3, 1.7, -0.2]} center>
-            <Button href="/gallery"></Button>
+            <Button color="gray" router={router} href="/gallery"></Button>
           </Html>
 
           <Float rotationIntensity={0.15} floatIntensity={0.3}>
@@ -121,14 +96,13 @@ export const Diorama = () => {
             </group>
           </Float>
           <Html position={[0.22, 1.3, 0.34]} center>
-            <Button href="/about" />
+            <Button router={router} href="/about" />
           </Html>
 
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.background.geometry}
-            // material={materials.white}
             position={[-0.264, 1.285, 0.108]}
             rotation={[0, 0.351, 0]}
             scale={0.018}

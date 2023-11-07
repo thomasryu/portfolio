@@ -3,14 +3,17 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { url } from '@/data'
+import { contact } from '@/data/contact'
 
 import { Container } from '@/components/Container'
 import { Tag } from '@/components/Tag'
 import { Tooltip } from '@/components/Tooltip'
 
+import Cloud from '@/icons/cloud-download.svg'
 import GitHub from '@/icons/github.svg'
 import LinkedIn from '@/icons/linkedin.svg'
 import Location from '@/icons/location.svg'
+import Mail from '@/icons/mail.svg'
 
 const socials = [
   {
@@ -79,8 +82,8 @@ export default function HTMLPage() {
         <p className="text-xl lg:text-2xl text-center mt-2 lg:mt-3 w-auto lg:w-1/2 max-w-xl lg:max-w-2xl ">
           I&apos;m a frontend developer with over 6 years of experience, specializing in performance and scalability
           {/* <Link className="relative font-semibold hover:underline" href="/articles/growth-hacking">
-            growth hacking <span className="absolute inline-block font-extrabold text-xs lg:text-sm">(?)</span>
-          </Link> */}
+          growth hacking <span className="absolute inline-block font-extrabold text-xs lg:text-sm">(?)</span>
+        </Link> */}
         </p>
 
         <div className="relative z-0 text-md lg:text-lg mt-4 lg:mt-5 text-gray">
@@ -99,7 +102,7 @@ export default function HTMLPage() {
 
         {/* Skills */}
         <h2 className="text-center mt-16 lg:mt-20">Skills:</h2>
-        <div className="flex flex-col items-center mt-4 lg:mt-5 space-y-6 lg:space-y-7">
+        <div className="flex flex-col items-center mt-5 lg:mt-6 space-y-6 lg:space-y-7">
           {skills.map((skill) => (
             <div className="flex flex-col items-center" key={skill.label}>
               <h3 className="text-center">{skill.label}</h3>
@@ -114,19 +117,40 @@ export default function HTMLPage() {
           ))}
         </div>
 
-        {/* Socials */}
-        <h2 className="text-center mt-16 lg:mt-24">Socials:</h2>
-        <div className="flex flex-row mt-5 lg:mt-6 space-x-5 lg:space-x-8">
-          {socials.map((social) => (
+        <h2 className="text-center mt-18 lg:mt-24">Contact:</h2>
+        <div className="flex flex-col items-center mt-7 lg:mt-8">
+          <div className="flex items-center space-x-5">
             <Link
-              className="flex flex-row items-center hover:underline"
-              href={social.href}
+              className="inline-flex flex-row items-center hover:underline"
+              href={url.social.linkedin}
               rel="noopener noreferrer"
-              key={social.label}
             >
-              <social.icon className="w-6 h-6" /> <span className="text-md lg:text-lg ml-2">{social.label}</span>
+              <LinkedIn className="w-6 h-6 lg:w-7 lg:h-7" />
+              <span className="text-lg lg:text-xl ml-3">LinkedIn</span>
             </Link>
-          ))}
+
+            <Link
+              className="inline-flex flex-row items-center hover:underline"
+              href={url.social.github}
+              rel="noopener noreferrer"
+            >
+              <GitHub className="w-6 h-6 lg:w-7 lg:h-7" /> <span className="text-lg lg:text-xl ml-3">GitHub</span>
+            </Link>
+          </div>
+
+          <span className="block bg-gray w-36 lg:w-44 h-[1px] my-5 lg:my-7" aria-hidden="true"></span>
+
+          <Link className="inline-flex flex-row items-center hover:underline" href={`mailto:${contact.email}`}>
+            <Mail className="w-6 h-6 lg:w-7 lg:h-7" /> <span className="text-lg lg:text-xl ml-3">{contact.email}</span>
+          </Link>
+
+          <Link
+            className="inline-flex flex-row items-center hover:underline mt-4 lg:mt-5"
+            href="/documents/thomas-cv.pdf"
+            download
+          >
+            <Cloud className="w-6 h-6 lg:w-7 lg:h-7" /> <span className="text-lg lg:text-xl ml-3">Download CV</span>
+          </Link>
         </div>
       </Container>
     </main>

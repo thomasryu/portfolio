@@ -17,6 +17,8 @@ export const generateMetadata = async ({ params }: PageProps): Promise<Metadata>
   return {
     title: post.metaTitle,
     description: post.metaDescription,
+
+    robots: { index: false },
   }
 }
 
