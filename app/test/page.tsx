@@ -9,11 +9,12 @@ export default function ContactPage() {
     <main className="pt-12 pb-32 lg:pt-20 lg:pb-40">
       <div className="w-screen h-screen">
         <Canvas
+          className="touch-none"
           camera={{
-            fov: 45,
+            fov: 90,
             near: 0.1,
-            far: 20,
-            position: [4, 3, 4],
+            far: 8,
+            position: [2, 2, 2],
           }}
           shadows
         >
