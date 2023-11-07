@@ -85,7 +85,8 @@ export default function HomePage() {
 
         <div className="relative z-0 text-md lg:text-lg mt-4 lg:mt-5 text-gray">
           <span className="flex items-center">
-            <Location className="w-4 h-4 lg:w-5 lg:h-5 mr-2" /> São Paulo, Brazil
+            <Location className="w-4 h-4 lg:w-5 lg:h-5 mr-2" />
+            São Paulo, Brazil
           </span>
           <div
             className="absolute top-1/2 right-full transform -translate-y-1/2 -z-10 w-3 h-[1px] mr-1 lg:mr-2 bg-gray"

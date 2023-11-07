@@ -36,7 +36,7 @@ export const Diorama = () => {
       <Lighting />
 
       <group ref={groupRef}>
-        <Html position-y={1.55} distanceFactor={10} scale={0.2} transform center>
+        <Html position-y={1.55} distanceFactor={2} transform center>
           <Title />
         </Html>
       </group>
