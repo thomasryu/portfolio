@@ -1,6 +1,7 @@
 'use client'
 
 import { Canvas } from '@react-three/fiber'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { NoToneMapping } from 'three'
 
@@ -16,13 +17,19 @@ export const Background = (props: Props) => {
 
   return (
     <div className={`fixed top-0 left-0 w-screen h-screen -z-10 ${props.className}`}>
-      <div
-        className={`absolute top-0 left-0 h-full w-full ${
-          pathname === '/' ? 'opacity-0 pointer-events-none' : 'opacity-1'
-        } transition-opacity`}
-      >
-        <div className="absolute top-0 left-0 w-full h-full backdrop-blur-lg"></div>
-        <div className="absolute top-0 left-0 w-full h-full bg-white opacity-50 transition-none"></div>
+      {/* Leaving a single transition of opacity on the wrapper was not possible for some reason,
+          the blur effect did not transition when done that way (adding one for each was necessary) */}
+      <div className={`absolute top-0 left-0 h-full w-full ${isHome ? 'pointer-events-none' : ''}`} aria-hidden="true">
+        <div
+          className={`absolute top-0 left-0 w-full h-full backdrop-blur-lg transition-opacity duration-500 ${
+            isHome ? 'opacity-0' : 'opacity-1'
+          }`}
+        />
+        <div
+          className={`absolute top-0 left-0 w-full h-full bg-white transition-opacity duration-500 ${
+            isHome ? 'opacity-0' : 'opacity-75'
+          }`}
+        />
       </div>
 
       <Canvas
@@ -30,11 +37,10 @@ export const Background = (props: Props) => {
         camera={{
           fov: 60,
           near: 0.1,
-          far: 10,
+          far: 11,
           position: [3, 3, 3],
         }}
         shadows
-        linear
       >
         <Diorama />
       </Canvas>
