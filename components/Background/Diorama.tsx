@@ -42,7 +42,7 @@ export const Diorama = () => {
         shadow-normalBias={0.04}
         shadow-mapSize={[1024, 1024]}
         shadow-camera-near={1}
-        shadow-camera-far={20}
+        shadow-camera-far={10}
         shadow-camera-top={2}
         shadow-camera-right={2}
         shadow-camera-bottom={-2}
@@ -62,33 +62,15 @@ export const Diorama = () => {
         shadow-camera-left={-2}
       />
 
-      <ambientLight intensity={2.5} />
+      <ambientLight intensity={4} />
       <PresentationControls
         global
-        polar={[-0.2, 0.2]}
-        azimuth={[-0.5, 0.5]}
+        polar={[-0.1, 0.1]}
+        azimuth={[-0.2, 0.2]}
         config={{ mass: 2, tension: 400 }}
         snap={{ mass: 2, tension: 400 }}
       >
         <group scale={2} position-y={-2.5}>
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.pencil.geometry}
-            material={materials.yellow}
-            position={[0.31, 1.466, -0.237]}
-            rotation={[0.295, 1.025, -0.619]}
-            scale={0.085}
-          />
-          <Html position={[0.3, 1.65, -0.2]} center>
-            <Link
-              className="text-md lg:text-lg font-serif hover:bg-yellow transition-colors font-bold px-2 py-1 lg:px-3 lg:pt-1.5 lg:pb-1 rounded"
-              href="/gallery"
-            >
-              •
-            </Link>
-          </Html>
-
           <mesh
             castShadow
             receiveShadow
@@ -100,22 +82,36 @@ export const Diorama = () => {
           />
           <Html position={[-0.1, 0.6, 0.45]} center>
             <Link
-              className="text-md lg:text-lg font-serif hover:bg-yellow transition-colors font-bold px-2 py-1 lg:px-3 lg:pt-1.5 lg:pb-1 rounded"
+              className="group flex justify-center items-center w-10 h-10 rounded-full border-2 border-white"
               href="/work"
             >
-              •
+              <div
+                className="w-5 h-5 group-hover:scale-125 transition-transform rounded-full bg-white"
+                aria-hidden="true"
+              />
             </Link>
           </Html>
 
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.background.geometry}
-            material={materials.white}
-            position={[-0.264, 1.285, 0.108]}
-            rotation={[0, 0.351, 0]}
-            scale={0.018}
+            geometry={nodes.pencil.geometry}
+            material={materials.yellow}
+            position={[0.31, 1.466, -0.237]}
+            rotation={[0.295, 1.025, -0.619]}
+            scale={0.085}
           />
+          <Html position={[0.3, 1.7, -0.2]} center>
+            <Link
+              className="group flex justify-center items-center w-10 h-10 rounded-full border-2 border-light-gray"
+              href="/gallery"
+            >
+              <div
+                className="w-5 h-5 group-hover:scale-125 transition-transform rounded-full bg-light-gray"
+                aria-hidden="true"
+              />
+            </Link>
+          </Html>
 
           <Float rotationIntensity={0.1} floatIntensity={0.2}>
             <group rotation-y={Math.PI / 8} position-y={0.1}>
@@ -130,19 +126,32 @@ export const Diorama = () => {
               />
               <group position-y={1.29} rotation-x={-Math.PI / 2 + 0.2}>
                 <Html transform scale={0.021}>
-                  <iframe className="rounded-[55px] bg-white" seamless width={396} height={836} src="/about"></iframe>
+                  <iframe className="rounded-[55px] bg-white" seamless width={396} height={836} src="/html"></iframe>
                 </Html>
               </group>
             </group>
           </Float>
           <Html position={[0.22, 1.3, 0.34]} center>
             <Link
-              className="text-md lg:text-lg font-serif hover:bg-yellow transition-colors font-bold px-2 py-1 lg:px-3 lg:pt-1.5 lg:pb-1 rounded"
+              className="group flex justify-center items-center w-10 h-10 rounded-full border-2 border-white "
               href="/about"
             >
-              •
+              <div
+                className="w-5 h-5 group-hover:scale-125 transition-transform rounded-full bg-white"
+                aria-hidden="true"
+              />
             </Link>
           </Html>
+
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.background.geometry}
+            material={materials.white}
+            position={[-0.264, 1.285, 0.108]}
+            rotation={[0, 0.351, 0]}
+            scale={0.018}
+          />
         </group>
       </PresentationControls>
     </>
