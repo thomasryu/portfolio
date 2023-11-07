@@ -2,11 +2,12 @@ import { Float, Html, PresentationControls, useGLTF } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
 import { useRouter } from 'next/navigation'
 import { useRef } from 'react'
-import { Mesh } from 'three'
+import { Group } from 'three'
 import type { GLTF } from 'three/examples/jsm/Addons.js'
 
 import { Button } from './Button'
 import { Lighting } from './Lighting'
+import { Title } from './Title'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -18,21 +19,14 @@ type GLTFResult = GLTF & {
 }
 
 export const Diorama = () => {
-  // const { camera, gl } = useThree()
+  const { camera, gl } = useThree()
+  const groupRef = useRef<Group>(null)
 
-  // const cubeRef = useRef<Mesh>(null)
-  // const groupRef = useRef<Mesh>(null)
-
-  // useFrame((state, delta) => {
-  //   const angle = state.clock.elapsedTime
-  //   state.camera.position.x = Math.sin(angle) * 3
-  //   state.camera.position.z = Math.cos(angle) * 3
-  //   state.camera.lookAt(0, 0, 0)
-  //   // if (cubeRef.current) {
-  //   //   cubeRef.current.rotation.y += delta
-  //   // }
-  //   // groupRef.current.rotation.y += delta
-  // })
+  useFrame(() => {
+    if (groupRef.current) {
+      groupRef.current.lookAt(camera.position)
+    }
+  })
 
   const router = useRouter()
   const { nodes } = useGLTF('/models/model.glb') as GLTFResult
@@ -40,6 +34,12 @@ export const Diorama = () => {
   return (
     <>
       <Lighting />
+
+      <group ref={groupRef}>
+        <Html position-y={1.55} distanceFactor={10} scale={0.2} transform center>
+          <Title />
+        </Html>
+      </group>
 
       <PresentationControls
         global

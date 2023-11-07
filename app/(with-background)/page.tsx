@@ -57,19 +57,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main className="h-full pt-16 lg:pt-32">
-      <Container className="flex flex-col items-center justify-between">
-        {/* Title and description */}
-        <h1 className="text-center font-bold">
-          Hi, my name is{' '}
-          <mark className="inline-block bg-yellow rounded px-1.5 pt-1 lg:px-2 lg:pt-1.5 lg:pb-0.5">Thomas</mark>
-        </h1>
-        <p className="text-xl lg:text-2xl text-center mt-2 lg:mt-3 w-auto lg:w-1/2 max-w-xl lg:max-w-2xl ">
-          I&apos;m a frontend developer with over 6 years of experience, specializing in performance and scalability
-          {/* <Link className="relative font-semibold hover:underline" href="/articles/growth-hacking">
-            growth hacking <span className="absolute inline-block font-extrabold text-xs lg:text-sm">(?)</span>
-          </Link> */}
-        </p>
-      </Container>
+      {/* <Container className="flex flex-col items-center justify-between"></Container> */}
     </main>
   )
 }
