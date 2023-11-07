@@ -56,10 +56,10 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main className="pt-12 pb-32 lg:pt-20 lg:pb-40">
+    <main className="h-full pt-16 lg:pt-32">
       <Container className="flex flex-col items-center justify-between">
         {/* Title and description */}
-        <h1 className="text-center font-bold mt-12 lg:mt-20">
+        <h1 className="text-center font-bold">
           Hi, my name is{' '}
           <mark className="inline-block bg-yellow rounded px-1.5 pt-1 lg:px-2 lg:pt-1.5 lg:pb-0.5">Thomas</mark>
         </h1>
