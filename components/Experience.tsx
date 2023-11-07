@@ -30,12 +30,10 @@ export const Experience = () => {
     // groupRef.current.rotation.y += delta
   })
 
-  const background = useGLTF('/models/background.glb') as GLTFResult
-  const { nodes, materials } = useGLTF('/models/phone.glb') as GLTFResult
+  const { nodes, materials } = useGLTF('/models/model.glb') as GLTFResult
 
   return (
     <>
-      {/* <directionalLight position={[-4, 5, -2]} intensity={5} castShadow shadow-normalBias={0.04} /> */}
       <directionalLight
         position={[3, 8, -3]}
         intensity={4}
@@ -50,7 +48,7 @@ export const Experience = () => {
         shadow-camera-left={-2}
       />
       <directionalLight
-        position={[-3, 7, -2]}
+        position={[3, 2, 2]}
         intensity={2}
         castShadow
         shadow-normalBias={0.04}
@@ -63,78 +61,48 @@ export const Experience = () => {
         shadow-camera-left={-2}
       />
       <ambientLight intensity={2.5} />
-      {/* <Environment preset="city" /> */}
-      {/* <Float> */}
-      <group scale={2} position-y={-1}>
+      <group scale={2} position-y={-1.5}>
         <mesh
           castShadow
           receiveShadow
-          geometry={background.nodes.floor.geometry}
-          material={background.materials.white}
-          rotation={[0, -1.571, 0]}
-          scale={[0.1, 0.101, 0.101]}
+          geometry={nodes.pencil.geometry}
+          material={materials.yellow}
+          position={[0.31, 1.466, -0.237]}
+          rotation={[0.295, 1.025, -0.619]}
+          scale={0.085}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={background.nodes.table.geometry}
-          material={background.materials.white}
-          position={[0, 0.003, 0]}
-          rotation={[-Math.PI, 0.425, -Math.PI]}
-          scale={0.163}
+          geometry={nodes.bag.geometry}
+          material={materials.yellow}
+          position={[-0.656, 0.501, 0.366]}
+          rotation={[0, 0.593, 0]}
+          scale={0.566}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={background.nodes['d6-1'].geometry}
-          material={background.materials.white}
-          position={[-0.276, 1.285, 0.132]}
-          rotation={[0, -0.283, 0]}
+          geometry={nodes.background.geometry}
+          material={materials.white}
+          position={[-0.264, 1.285, 0.108]}
+          rotation={[0, 0.351, 0]}
           scale={0.018}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={background.nodes['d6-2'].geometry}
-          material={background.materials.white}
-          position={[-0.219, 1.285, 0.103]}
-          rotation={[0, 0.155, 0]}
-          scale={0.018}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={background.nodes.d20.geometry}
-          material={background.materials.white}
-          position={[-0.199, 1.293, 0.005]}
-          rotation={[-1.39, 0.93, -0.454]}
-          scale={0.035}
-        />
-
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={background.nodes['trash-can'].geometry}
-          material={background.materials.white}
-          position={[0.445, 0.427, -0.198]}
-          rotation={[0, 1.252, 0]}
-          scale={0.536}
         />
 
         <Float rotationIntensity={0.1} floatIntensity={0.1}>
-          <group rotation-y={Math.PI / 4} position-y={0.1}>
+          <group rotation-y={Math.PI / 8} position-y={0.1}>
             <mesh
               castShadow
               receiveShadow
               geometry={nodes.phone.geometry}
-              material={materials.phone}
+              material={materials.yellow}
               position={[0, 1.283, 0]}
               rotation-x={0.2}
               scale={0.684}
             />
 
             <group position-y={1.29} rotation-x={-Math.PI / 2 + 0.2}>
-              {/* <rectAreaLight width={0.2} height={0.8} position-z={0.5} castShadow intensity={65} color={'#ffcc18'} /> */}
               <Html transform scale={0.021}>
                 <iframe className="rounded-[55px] bg-white" seamless width={396} height={836} src="/"></iframe>
               </Html>
