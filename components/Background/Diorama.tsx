@@ -14,7 +14,7 @@ type GLTFResult = GLTF & {
   }
 }
 
-export const Experience = () => {
+export const Diorama = () => {
   const { camera, gl } = useThree()
 
   const cubeRef = useRef<Mesh>(null)
@@ -70,7 +70,7 @@ export const Experience = () => {
         config={{ mass: 2, tension: 400 }}
         snap={{ mass: 2, tension: 400 }}
       >
-        <group scale={2} position-y={-1.5}>
+        <group scale={2} position-y={-2.5}>
           <mesh
             castShadow
             receiveShadow
@@ -130,7 +130,7 @@ export const Experience = () => {
               />
               <group position-y={1.29} rotation-x={-Math.PI / 2 + 0.2}>
                 <Html transform scale={0.021}>
-                  <iframe className="rounded-[55px] bg-white" seamless width={396} height={836} src="/"></iframe>
+                  <iframe className="rounded-[55px] bg-white" seamless width={396} height={836} src="/about"></iframe>
                 </Html>
               </group>
             </group>

@@ -2,19 +2,25 @@
 
 import { Canvas } from '@react-three/fiber'
 
-import { Geometry } from './Geometry'
+import { Diorama } from './Diorama'
 
 type Props = {
   className?: string
 }
 
 export const Background = (props: Props) => (
-  <div
-    className={`fixed top-1/2 left-1/2 w-screen max-w-2xl lg:max-w-3xl aspect-square
-      -translate-x-1/2 -translate-y-1/2 -z-10 opacity-10 ${props.className}`}
-  >
-    <Canvas>
-      <Geometry />
+  <div className={`fixed top-0 left-0 bottom-0 right-0 -z-10 ${props.className}`}>
+    <Canvas
+      className="touch-none"
+      camera={{
+        fov: 90,
+        near: 0.1,
+        far: 8,
+        position: [2, 2, 2],
+      }}
+      shadows
+    >
+      <Diorama />
     </Canvas>
   </div>
 )

@@ -2,7 +2,7 @@
 
 import { Canvas } from '@react-three/fiber'
 
-import { Experience } from '@/components/Experience'
+import { Diorama } from '@/components/Background/Diorama'
 
 export default function ContactPage() {
   return (
@@ -18,7 +18,7 @@ export default function ContactPage() {
           }}
           shadows
         >
-          <Experience></Experience>
+          <Diorama></Diorama>
         </Canvas>
       </div>
     </main>
