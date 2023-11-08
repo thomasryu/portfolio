@@ -2,19 +2,26 @@
 
 import { Canvas } from '@react-three/fiber'
 
-import { Geometry } from './Geometry'
+import { BlurOverlay } from './components/BlurOverlay'
+import { Diorama } from './components/Diorama'
 
-type Props = {
-  className?: string
+export const Background = () => {
+  return (
+    <div className="fixed top-0 left-0 w-screen h-screen -z-10">
+      <BlurOverlay />
+
+      <Canvas
+        className="touch-none -z-10"
+        camera={{
+          fov: 60,
+          near: 0.1,
+          far: 11,
+          position: [3, 3, 3],
+        }}
+        shadows
+      >
+        <Diorama />
+      </Canvas>
+    </div>
+  )
 }
-
-export const Background = (props: Props) => (
-  <div
-    className={`fixed top-1/2 left-1/2 w-screen max-w-2xl lg:max-w-3xl aspect-square
-      -translate-x-1/2 -translate-y-1/2 -z-10 opacity-10 ${props.className}`}
-  >
-    <Canvas>
-      <Geometry />
-    </Canvas>
-  </div>
-)

@@ -8,8 +8,8 @@ type Props = {}
 
 export const links = [
   {
-    label: 'Contact',
-    href: '/contact',
+    label: 'About',
+    href: '/about',
   },
   {
     label: 'Work',

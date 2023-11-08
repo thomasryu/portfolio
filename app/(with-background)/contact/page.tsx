@@ -14,6 +14,8 @@ import Mail from '@/icons/mail.svg'
 export const metadata: Metadata = {
   title: 'Thomas | Contact',
   description: 'To contact me about professional inquiries, my e-mail is thomas.sameshima@gmail.com',
+
+  robots: { index: false },
 }
 
 export default function ContactPage() {
