@@ -87,18 +87,11 @@ export const Diorama = () => {
           </Html>
 
           <Float rotationIntensity={0.15} floatIntensity={0.3}>
-            <group rotation-y={Math.PI / 8} position-y={0.1}>
-              <mesh
-                castShadow
-                receiveShadow
-                geometry={nodes.phone.geometry}
-                position={[0, 1.283, 0]}
-                rotation-x={0.2}
-                scale={0.684}
-              >
+            <group rotation={[0.2, Math.PI / 8, 0]} position={[0, 1.383, 0]} scale={0.684}>
+              <mesh castShadow receiveShadow geometry={nodes.phone.geometry}>
                 <meshStandardMaterial color="orange" roughness={0.25} metalness={0.5} />
               </mesh>
-              <Html transform scale={0.021} position-y={1.29} rotation-x={-Math.PI / 2 + 0.2}>
+              <Html transform scale={0.03} position-y={0.01} rotation-x={-Math.PI / 2}>
                 <iframe className="rounded-[55px] bg-white" seamless width={396} height={836} src="/html"></iframe>
               </Html>
             </group>
