@@ -7,7 +7,6 @@ import { contact } from '@/data/contact'
 
 import { Container } from '@/components/Container'
 import { Tag } from '@/components/Tag'
-import { Tooltip } from '@/components/Tooltip'
 
 import Cloud from '@/icons/cloud-download.svg'
 import GitHub from '@/icons/github.svg'
@@ -49,7 +48,7 @@ const skills = [
       'Contentful CMS',
     ],
   },
-  { label: 'Growth', tags: ['Technical SEO', 'A/B Testing'] },
+  { label: 'Growth', tags: ['Technical SEO', 'A/B Testing', 'Performance Optimization'] },
 ]
 
 export const metadata: Metadata = {
@@ -81,9 +80,6 @@ export default function HTMLPage() {
         </h1>
         <p className="text-xl lg:text-2xl text-center mt-2 lg:mt-3 w-auto lg:w-1/2 max-w-xl lg:max-w-2xl ">
           I&apos;m a frontend developer with over 6 years of experience, specializing in performance and scalability
-          {/* <Link className="relative font-semibold hover:underline" href="/articles/growth-hacking">
-          growth hacking <span className="absolute inline-block font-extrabold text-xs lg:text-sm">(?)</span>
-        </Link> */}
         </p>
 
         <div className="relative z-0 text-md lg:text-lg mt-4 lg:mt-5 text-gray">

@@ -5,6 +5,7 @@ import { useRef } from 'react'
 import { Group } from 'three'
 import type { GLTF } from 'three/examples/jsm/Addons.js'
 
+// import { damp } from 'three/src/math/MathUtils.js'
 import { Button } from './Button'
 import { Lighting } from './Lighting'
 import { Title } from './Title'
@@ -19,13 +20,18 @@ type GLTFResult = GLTF & {
 }
 
 export const Diorama = () => {
-  const { camera, gl } = useThree()
+  const { camera } = useThree()
   const groupRef = useRef<Group>(null)
 
-  useFrame(() => {
+  useFrame((state, delta) => {
     if (groupRef.current) {
       groupRef.current.lookAt(camera.position)
     }
+
+    // state.camera.position.x = damp(state.camera.position.x, 3 + Math.sin(state.pointer.x), 0.4, delta)
+    // state.camera.position.y = damp(state.camera.position.y, 3 + state.pointer.y / 2, 0.2, delta)
+    // state.camera.position.z = damp(state.camera.position.z, 3 + Math.cos(state.pointer.x), 0.4, delta)
+    // state.camera.lookAt(0, 0, 0)
   })
 
   const router = useRouter()
@@ -34,6 +40,8 @@ export const Diorama = () => {
   return (
     <>
       <Lighting />
+
+      <fog attach="fog" args={['#f9fafb', 7, 9.2]} />
 
       <group ref={groupRef}>
         <Html position-y={1.55} distanceFactor={2} transform center>
