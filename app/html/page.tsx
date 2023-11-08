@@ -52,8 +52,9 @@ const skills = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Thomas | Frontend Developer',
-  description: "I'm a frontend developer with over 6 years of experience, specializing in growth hacking.",
+  title: 'Thomas | About me',
+  description: 'A little about me as a professional',
+
   robots: {
     index: false,
   },
@@ -75,11 +76,12 @@ export default function HTMLPage() {
 
         {/* Title and description */}
         <h1 className="text-center font-bold mt-12 lg:mt-20">
-          Hi, my name is{' '}
-          <mark className="inline-block bg-yellow rounded px-1.5 pt-1 lg:px-2 lg:pt-1.5 lg:pb-0.5">Thomas</mark>
+          About <mark className="inline-block bg-yellow rounded px-1.5 pt-1 lg:px-2 lg:pt-1.5 lg:pb-0.5">me</mark>
         </h1>
-        <p className="text-xl lg:text-2xl text-center mt-2 lg:mt-3 w-auto lg:w-1/2 max-w-xl lg:max-w-2xl ">
-          I&apos;m a frontend developer with over 6 years of experience, specializing in performance and scalability
+        <p className="text-xl lg:text-2xl text-center mt-2 lg:mt-3 w-auto lg:w-3/5 max-w-xl lg:max-w-2xl ">
+          As a developer, React and Next.js are my bread and butter. As a professional, I also have extensive experience
+          with <strong className="font-bold">Growth Hacking</strong>, which entails subjects such as web analytics, SEO,
+          and A/B testing
         </p>
 
         <div className="relative z-0 text-md lg:text-lg mt-4 lg:mt-5 text-gray">
