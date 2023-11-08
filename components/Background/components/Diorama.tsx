@@ -76,8 +76,8 @@ export const Diorama = () => {
             castShadow
             receiveShadow
             geometry={nodes.pencil.geometry}
-            position={[0.31, 1.466, -0.237]}
-            rotation={[0.295, 1.025, -0.619]}
+            position={[0.302, 1.469, -0.242]}
+            rotation={[1.022, 1.349, -1.39]}
             scale={0.085}
           >
             <meshStandardMaterial color="orange" roughness={0.25} metalness={0.5} />
@@ -104,8 +104,8 @@ export const Diorama = () => {
             castShadow
             receiveShadow
             geometry={nodes.background.geometry}
-            position={[-0.264, 1.285, 0.108]}
-            rotation={[0, 0.351, 0]}
+            position={[-0.413, 1.287, -0.074]}
+            rotation={[Math.PI, -1.342, Math.PI]}
             scale={0.018}
           >
             <meshStandardMaterial color="white" roughness={0.25} metalness={0.5} />
