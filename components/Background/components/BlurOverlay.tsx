@@ -19,6 +19,8 @@ export const BlurOverlay = () => {
             isHome ? 'opacity-0 duration-300' : 'opacity-75 duration-75'
           }`}
         />
+
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-white to-transparent to-15%"></div>
       </div>
     </>
   )
