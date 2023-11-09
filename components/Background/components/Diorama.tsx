@@ -35,7 +35,7 @@ export const Diorama = () => {
   })
 
   const router = useRouter()
-  const { nodes } = useGLTF('/models/model.glb') as GLTFResult
+  const { nodes } = useGLTF('/models/diorama.glb') as GLTFResult
 
   return (
     <>
@@ -99,14 +99,13 @@ export const Diorama = () => {
           <Html position={[0.22, 1.3, 0.34]} center>
             <Button router={router} href="/about" />
           </Html>
-
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.background.geometry}
-            position={[-0.413, 1.287, -0.074]}
-            rotation={[Math.PI, -1.342, Math.PI]}
-            scale={0.018}
+            position={[-0.31, 1.272, 0.033]}
+            rotation={[0, 0.312, 0]}
+            scale={0.429}
           >
             <meshStandardMaterial color="white" roughness={0.25} metalness={0.5} />
           </mesh>
