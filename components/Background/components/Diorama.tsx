@@ -1,13 +1,9 @@
-import { Float, Html, PresentationControls, useGLTF, useMatcapTexture } from '@react-three/drei'
-import { useFrame, useThree } from '@react-three/fiber'
+import { Float, Html, PresentationControls, useGLTF } from '@react-three/drei'
 import { useRouter } from 'next/navigation'
-import { useRef } from 'react'
-import { Group } from 'three'
 import type { GLTF } from 'three/examples/jsm/Addons.js'
 
 import { Button } from './Button'
 import { Lighting } from './Lighting'
-import { Title } from './Title'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -19,23 +15,22 @@ type GLTFResult = GLTF & {
 }
 
 export const Diorama = () => {
-  const { camera } = useThree()
-  const groupRef = useRef<Group>(null)
+  // const { camera } = useThree()
+  // const groupRef = useRef<Group>(null)
 
-  useFrame((state, delta) => {
-    if (groupRef.current) {
-      groupRef.current.lookAt(camera.position)
-    }
+  // useFrame((state, delta) => {
+  //   if (groupRef.current) {
+  //     groupRef.current.lookAt(camera.position)
+  //   }
 
-    // state.camera.position.x = damp(state.camera.position.x, 3 + Math.sin(state.pointer.x), 0.4, delta)
-    // state.camera.position.y = damp(state.camera.position.y, 3 + state.pointer.y / 2, 0.2, delta)
-    // state.camera.position.z = damp(state.camera.position.z, 3 + Math.cos(state.pointer.x), 0.4, delta)
-    // state.camera.lookAt(0, 0, 0)
-  })
+  //   state.camera.position.x = damp(state.camera.position.x, 3 + Math.sin(state.pointer.x), 0.4, delta)
+  //   state.camera.position.y = damp(state.camera.position.y, 3 + state.pointer.y / 2, 0.2, delta)
+  //   state.camera.position.z = damp(state.camera.position.z, 3 + Math.cos(state.pointer.x), 0.4, delta)
+  //   state.camera.lookAt(0, 0, 0)
+  // })
 
   const router = useRouter()
   const { nodes } = useGLTF('/models/diorama.glb') as GLTFResult
-  const [matcapTexture] = useMatcapTexture('7B5254_E9DCC7_B19986_C8AC91', 256)
 
   return (
     <>
@@ -43,11 +38,11 @@ export const Diorama = () => {
 
       <fog attach="fog" args={['#f9fafb', 7, 9.2]} />
 
-      <group ref={groupRef}>
+      {/* <group ref={groupRef}>
         <Html position-y={1.55} distanceFactor={2} transform center>
           <Title />
         </Html>
-      </group>
+      </group> */}
 
       <PresentationControls
         global
