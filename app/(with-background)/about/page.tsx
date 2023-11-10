@@ -54,7 +54,7 @@ const skills = [
 
 export const metadata: Metadata = {
   title: 'Thomas | About me',
-  description: 'A little about me as a professional',
+  description: 'A little about me, my skills as a professional, and contact information.',
 }
 
 export default function HomePage() {
