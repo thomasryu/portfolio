@@ -1,11 +1,6 @@
 import type { Metadata } from 'next'
 
-import { url } from '@/data'
-
 import { Container } from '@/components/Container'
-
-import GitHub from '@/icons/github.svg'
-import LinkedIn from '@/icons/linkedin.svg'
 
 export const metadata: Metadata = {
   title: 'Thomas | Frontend Developer',
