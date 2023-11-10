@@ -1,11 +1,10 @@
-import { Float, Html, PresentationControls, useGLTF } from '@react-three/drei'
+import { Float, Html, PresentationControls, useGLTF, useMatcapTexture } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
 import { useRouter } from 'next/navigation'
 import { useRef } from 'react'
 import { Group } from 'three'
 import type { GLTF } from 'three/examples/jsm/Addons.js'
 
-// import { damp } from 'three/src/math/MathUtils.js'
 import { Button } from './Button'
 import { Lighting } from './Lighting'
 import { Title } from './Title'
@@ -36,6 +35,7 @@ export const Diorama = () => {
 
   const router = useRouter()
   const { nodes } = useGLTF('/models/diorama.glb') as GLTFResult
+  const [matcapTexture] = useMatcapTexture('7B5254_E9DCC7_B19986_C8AC91', 256)
 
   return (
     <>
@@ -82,21 +82,23 @@ export const Diorama = () => {
           >
             <meshStandardMaterial color="orange" roughness={0.25} metalness={0.5} />
           </mesh>
-          <Html position={[0.3, 1.7, -0.2]} center>
+          <Html position={[0.28, 1.65, -0.25]} center>
             <Button color="gray" router={router} href="/gallery"></Button>
           </Html>
 
           <Float rotationIntensity={0.15} floatIntensity={0.3}>
-            <group rotation={[0.2, Math.PI / 8, 0]} position={[0, 1.383, 0]} scale={0.684}>
+            <group rotation={[0.2, Math.PI / 8, 0]} position={[0, 1.43, 0]} scale={0.684}>
               <mesh castShadow receiveShadow geometry={nodes.phone.geometry}>
                 <meshStandardMaterial color="orange" roughness={0.25} metalness={0.5} />
               </mesh>
+
               <Html transform scale={0.03} position-y={0.01} rotation-x={-Math.PI / 2}>
                 <iframe className="rounded-[55px] bg-white" seamless width={396} height={836} src="/html"></iframe>
               </Html>
             </group>
           </Float>
-          <Html position={[0.22, 1.3, 0.34]} center>
+
+          <Html position={[0.17, 1.35, 0.3]} center>
             <Button router={router} href="/about" />
           </Html>
           <mesh

@@ -21,7 +21,7 @@ export const Button = ({ color = 'white', ...props }: ButtonProps) => {
 
   return (
     <button
-      className="group flex justify-center items-center w-10 h-10 2xl:w-12 2xl:h-12 rounded-full"
+      className="group flex justify-center items-center w-10 h-10 2xl:w-12 2xl:h-12 rounded-full opacity-90 hover:opacity-100 transition-opacity duration-500"
       onClick={() => props.router.push(props.href)}
     >
       <div
