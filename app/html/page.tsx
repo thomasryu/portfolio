@@ -30,7 +30,20 @@ const socials = [
 const skills = [
   {
     label: 'Languages / Frameworks',
-    tags: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'WordPress'],
+    tags: [
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'TypeScript',
+      'React',
+      'Redux',
+      'Cypress',
+      'Jest',
+      'Next.js',
+      'Tailwind CSS',
+      'Three.js',
+      'WordPress',
+    ],
   },
   {
     label: 'Tools',

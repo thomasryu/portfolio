@@ -74,7 +74,7 @@ export const Diorama = () => {
         snap={{ mass: 2, tension: 400 }}
         cursor={false}
       >
-        <group scale={2} position-y={-2.8}>
+        <group scale={2} position-y={-2.7}>
           <mesh
             castShadow
             receiveShadow

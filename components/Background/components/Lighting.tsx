@@ -10,6 +10,6 @@ export const Lighting = () => (
     <directionalLight position={[3, 2, 2]} intensity={2} castShadow shadow-normalBias={0.04} shadow-mapSize={1024}>
       <orthographicCamera attach="shadow-camera" args={[-10, 10, -10, 10, 0.1, 50]} />
     </directionalLight>
-    <ambientLight intensity={0.5} />
+    {/* <ambientLight intensity={0.5} /> */}
   </>
 )
