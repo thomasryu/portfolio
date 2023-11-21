@@ -20,7 +20,7 @@ export const BlurOverlay = () => {
           }`}
         />
 
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-white to-transparent to-15%"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-light-gray to-transparent to-15%"></div>
       </div>
     </>
   )
