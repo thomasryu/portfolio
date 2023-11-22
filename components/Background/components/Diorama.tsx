@@ -119,9 +119,8 @@ export const Diorama = () => {
             receiveShadow
             geometry={nodes.background.geometry}
             material={whiteMaterial}
-            position={[-0.31, 1.272, 0.033]}
-            rotation={[0, 0.312, 0]}
-            scale={0.429}
+            position={[0.512, 1.276, -0.451]}
+            rotation={[0.003, -0.003, -0.027]}
           ></mesh>
         </group>
       </PresentationControls>
