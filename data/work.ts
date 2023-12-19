@@ -154,6 +154,11 @@ export const articles: Article[] = [
   // },
   {
     icon: Medium,
+    label: 'Should You Use Tailwind CSS?',
+    href: 'https://medium.com/@thomas.ryu/should-you-use-tailwind-css-83d519a29448',
+  },
+  {
+    icon: Medium,
     label: "Migrating Cobli's Website from Gatsby to Next.js",
     href: 'https://medium.com/@thomas.sameshima/migrating-coblis-website-from-gatsbyjs-to-nextjs-c9133b0257b4',
   },
