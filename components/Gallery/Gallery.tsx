@@ -31,7 +31,7 @@ export const Gallery = (props: Props) => {
   return (
     <>
       {/* Gallery */}
-      <div className={`flex flex-wrap ${props.className}`}>
+      <div className={`flex flex-wrap ${props.className || ''}`}>
         <div className="-m-2 flex flex-wrap">
           {props.images.map((image, index) => (
             <div
