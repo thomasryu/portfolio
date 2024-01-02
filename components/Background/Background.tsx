@@ -1,19 +1,19 @@
 'use client'
 
 import { Canvas } from '@react-three/fiber'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 
 import { BlurOverlay } from './components/BlurOverlay'
 import { Diorama } from './components/Diorama'
 
 export const Background = () => {
-  const [height, setHeight] = useState('100dvh')
+  const [height, setHeight] = useState(false)
   const canvasRef = useRef<HTMLDivElement>(null)
 
   // Work around for the issue with the <Html> from Drei, where
   // it is positioned incorrectly on iOS, on canvases with a odd number height
   // more info here: https://github.com/pmndrs/drei/issues/720
-  useEffect(() => {
+  useLayoutEffect(() => {
     adjustHeight()
     window.addEventListener('resize', adjustHeight)
     return () => window.removeEventListener('resize', adjustHeight)
@@ -23,13 +23,15 @@ export const Background = () => {
     const { current } = canvasRef
     if (current) {
       let height = current.clientHeight
-      setHeight(`${height + (height % 2)}px`)
+      setHeight(height % 2 == 0)
     }
   }
 
   return (
     <div
-      className={`fixed bottom-0 left-0 -z-10 w-screen bg-gradient-to-t from-light-gray to-transparent to-50% h-[${height}] lg:h-dvh`}
+      className={`fixed bottom-0 left-0 -z-10 h-dvh w-screen bg-gradient-to-t from-light-gray to-transparent to-50% ${
+        height ? 'pb-0' : 'pb-[1px]'
+      }`}
       ref={canvasRef}
     >
       <BlurOverlay />
