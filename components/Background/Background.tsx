@@ -29,7 +29,7 @@ export const Background = () => {
 
   return (
     <div
-      className={`fixed bottom-0 left-0 -z-10 w-screen bg-gradient-to-t from-light-gray to-transparent to-50% h-[${height}px] lg:h-dvh`}
+      className={`fixed bottom-0 left-0 -z-10 w-screen bg-gradient-to-t from-light-gray to-transparent to-50% h-[${height}] lg:h-dvh`}
       ref={canvasRef}
     >
       <BlurOverlay />
