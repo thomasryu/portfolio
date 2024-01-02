@@ -7,7 +7,7 @@ import { BlurOverlay } from './components/BlurOverlay'
 import { Diorama } from './components/Diorama'
 
 export const Background = () => {
-  const [height, setHeight] = useState(false)
+  const [adjust, setAdjust] = useState(false)
   const canvasRef = useRef<HTMLDivElement>(null)
 
   // Work around for the issue with the <Html> from Drei, where
@@ -23,14 +23,14 @@ export const Background = () => {
     const { current } = canvasRef
     if (current) {
       let height = current.clientHeight
-      setHeight(height % 2 == 0)
+      setAdjust(height % 2 == 0)
     }
   }
 
   return (
     <div
       className={`fixed bottom-0 left-0 -z-10 h-dvh w-screen bg-gradient-to-t from-light-gray to-transparent to-50% ${
-        height ? 'pb-0' : 'pb-[1px]'
+        adjust ? '' : 'pb-[1px]'
       }`}
       ref={canvasRef}
     >
