@@ -13,19 +13,19 @@ export const Background = () => {
   // Work around for the issue with the <Html> from Drei, where
   // it is positioned incorrectly on iOS, on canvases with a odd number height
   // more info here: https://github.com/pmndrs/drei/issues/720
-  useLayoutEffect(() => {
-    adjustHeight()
-    window.addEventListener('resize', adjustHeight)
-    return () => window.removeEventListener('resize', adjustHeight)
-  }, [])
+  // useLayoutEffect(() => {
+  //   adjustHeight()
+  //   window.addEventListener('resize', adjustHeight)
+  //   return () => window.removeEventListener('resize', adjustHeight)
+  // }, [])
 
-  const adjustHeight = () => {
-    const { current } = canvasRef
-    if (current) {
-      let height = current.clientHeight
-      setHeight(`${height + (height % 2)}px`)
-    }
-  }
+  // const adjustHeight = () => {
+  //   const { current } = canvasRef
+  //   if (current) {
+  //     let height = current.clientHeight
+  //     setHeight(`${height + (height % 2)}px`)
+  //   }
+  // }
 
   return (
     <div
